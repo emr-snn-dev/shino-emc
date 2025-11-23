@@ -1,0 +1,47 @@
+/* 画面全体中央寄せ */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: #f8f8f8;
+    text-align: center;
+}
+
+/* ナビゲーション（上・下） */
+.nav {
+    padding: 12px;
+    background: #003366;
+    text-align: center;
+}
+
+.nav a {
+    margin: 0 15px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* コンテンツ中央 */
+main {
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 900px;
+    background: white;
+    border-radius: 6px;
+}
+
+footer {
+    margin-top: 30px;
+    padding: 20px;
+}
+
+/* ローディングバー初期 */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background: #003366;
+    z-index: 9999;
+}
