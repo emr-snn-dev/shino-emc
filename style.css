@@ -1,198 +1,86 @@
-/* ===============================
-   フォント / 全体設定
-================================ */
+/* -------------------
+   Reset
+------------------- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Noto Sans JP", sans-serif;
 }
 
+/* -------------------
+   Base
+------------------- */
 body {
-    background: #f7f7f7;
+    font-family: "Noto Sans JP", sans-serif;
+    background: #f4f6fb;
     color: #222;
-    line-height: 1.8;
-    padding: 20px;
 }
 
-/* ===============================
-   ページ中央寄せレイアウト
-================================ */
-.container {
-    max-width: 1000px;
-    margin: auto;
+/* -------------------
+   Header & Menu
+------------------- */
+header nav ul,
+footer ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    padding: 15px;
+    background: #003c8f;
+    flex-wrap: wrap;
 }
 
-/* ===============================
-   見出し
-================================ */
-h1 {
-    font-size: 2.5rem;
+header nav a,
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header nav a:hover,
+footer a:hover {
+    opacity: 0.6;
+}
+
+/* -------------------
+   Sections
+------------------- */
+section {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 12px;
+}
+
+h1, h2 {
     text-align: center;
     margin-bottom: 20px;
 }
 
-h2 {
-    font-size: 1.6rem;
-    margin-bottom: 10px;
-}
-
-/* ===============================
-   ナビ（上下中央に配置）
-================================ */
-nav {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    margin: 20px 0;
-}
-
-nav a {
-    text-decoration: none;
-    font-weight: bold;
-    color: #0070ff;
-    padding: 8px 16px;
-    border-radius: 8px;
-    transition: 0.2s;
-    background: white;
-    border: 1px solid #dcdcdc;
-}
-
-nav a:hover {
-    background: #0070ff;
-    color: white;
-}
-
-/* ===============================
-   セクション
-================================ */
-section {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 25px;
-    border: 1px solid #e2e2e2;
-}
-
-/* ===============================
-   フッター
-================================ */
+/* -------------------
+   Footer
+------------------- */
 footer {
     text-align: center;
-    margin-top: 30px;
-    padding: 15px;
-    border-top: 1px solid #bbb;
-    color: #777;
+    background: #003c8f;
+    color: #fff;
+    padding: 15px 0;
+    margin-top: 40px;
 }
 
-/* ===============================
-   お知らせ一覧
-================================ */
-.news-area {
-    margin-top: 15px;
-}
-
-.news-item {
-    padding: 12px 15px;
-    border-bottom: 1px solid #ddd;
-}
-
-.news-item:last-child {
-    border-bottom: none;
-}
-
-.news-date {
-    font-weight: bold;
-    color: #0070ff;
-}
-
-.news-title {
-    margin-left: 10px;
-}
-
-/* ===============================
-   ローディング画面
-================================ */
-#loading-screen {
-    position: fixed;
-    inset: 0;
-    background: #0044aa;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    z-index: 9999;
-    transition: 0.5s;
-}
-
-/* ローディングバー */
-.loading-bar-wrapper {
-    width: 80%;
-    background: rgba(255,255,255,0.2);
-    height: 10px;
-    border-radius: 6px;
-    overflow: hidden;
-    margin-top: 15px;
-}
-
-.loading-bar {
-    height: 10px;
-    width: 0%;
-    background: white;
-    transition: width 0.1s;
-}
-
-.loading-text {
-    margin-top: 8px;
-}
-
-/* ===============================
-   スマホ対応（レスポンシブ）
-================================ */
-@media screen and (max-width: 768px) {
-
-    body {
+/* -------------------
+   Smartphone Responsive
+------------------- */
+@media (max-width: 600px) {
+    header nav ul,
+    footer ul {
+        gap: 10px;
         padding: 10px;
-        font-size: 15px;
     }
-
-    h1 {
-        font-size: 1.8rem;
-    }
-
-    nav {
-        flex-direction: column;
-        gap: 8px;
-    }
-
-    nav a {
-        width: 100%;
-        text-align: center;
-        padding: 12px 0;
-    }
-
     section {
-        margin: 15px 0;
-        padding: 14px;
-    }
-
-    .news-item {
-        font-size: 0.9rem;
-    }
-
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    h1 {
-        font-size: 1.6rem;
-    }
-
-    nav a {
-        font-size: 0.9rem;
+        width: 95%;
+        padding: 18px;
     }
 }
