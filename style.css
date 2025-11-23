@@ -1,86 +1,144 @@
-/* -------------------
-   Reset
-------------------- */
+/* ===============================
+   リセット
+================================ */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* -------------------
-   Base
-------------------- */
 body {
-    font-family: "Noto Sans JP", sans-serif;
-    background: #f4f6fb;
+    font-family: "Yu Gothic", sans-serif;
+    background: #f5f9ff;
     color: #222;
 }
 
-/* -------------------
-   Header & Menu
-------------------- */
-header nav ul,
-footer ul {
+/* ===============================
+   ローディング画面
+================================ */
+.loading-screen {
+    position: fixed;
+    inset: 0;
+    background: #0044aa;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    gap: 20px;
-    list-style: none;
-    padding: 15px;
-    background: #003c8f;
-    flex-wrap: wrap;
+    align-items: center;
+    z-index: 99999;
+    transition: 0.6s;
 }
 
-header nav a,
-footer a {
-    color: #ffffff;
+.loading-bar {
+    width: 70%;
+    max-width: 400px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.loading-progress {
+    width: 0%;
+    height: 100%;
+    background: white;
+    border-radius: 6px;
+    transition: 0.1s;
+}
+
+#loading-text {
+    margin-top: 8px;
+    color: white;
+    font-size: 14px;
+}
+
+/* ===============================
+   ヘッダー
+================================ */
+header, #site-header {
+    width: 100%;
+    background: #0044aa;
+    color: white;
+}
+
+header nav ul,
+#site-header nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+    padding: 1rem 0;
+}
+
+header nav ul li a,
+#site-header nav ul li a {
+    color: white;
     text-decoration: none;
     font-weight: bold;
 }
 
-header nav a:hover,
-footer a:hover {
-    opacity: 0.6;
-}
-
-/* -------------------
-   Sections
-------------------- */
+/* ===============================
+   セクション
+================================ */
 section {
-    width: 90%;
+    padding: 40px 20px;
     max-width: 900px;
-    margin: 30px auto;
-    padding: 25px;
-    background: #ffffff;
-    border-radius: 12px;
+    margin: auto;
 }
 
-h1, h2 {
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
     text-align: center;
-    margin-bottom: 20px;
 }
 
-/* -------------------
-   Footer
-------------------- */
-footer {
+h2 {
+    margin-top: 30px;
+    font-size: 1.5rem;
+}
+
+/* ===============================
+   フッター
+================================ */
+footer, #site-footer {
+    background: #00285c;
+    color: white;
+    padding: 20px 0;
     text-align: center;
-    background: #003c8f;
-    color: #fff;
-    padding: 15px 0;
-    margin-top: 40px;
 }
 
-/* -------------------
-   Smartphone Responsive
-------------------- */
+footer ul, 
+#site-footer ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+footer ul li a,
+#site-footer ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ===============================
+   スマホ対応
+================================ */
 @media (max-width: 600px) {
     header nav ul,
-    footer ul {
-        gap: 10px;
-        padding: 10px;
+    #site-header nav ul,
+    footer ul,
+    #site-footer ul {
+        flex-direction: column;
+        gap: 0.5rem;
     }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
     section {
-        width: 95%;
-        padding: 18px;
+        padding: 20px;
     }
 }
