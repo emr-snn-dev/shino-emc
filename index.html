@@ -4,58 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>篠ノ井技術クラブ</title>
-    <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="loading.css">
+    <script defer src="loading.js"></script>
 </head>
-<body>
 
-    <!-- 読み込みアニメーションバー -->
-    <div id="loading-bar"></div>
+<body style="display:none;">
 
-    <!-- 上メニュー -->
-    <nav class="main-nav">
-        <ul>
-            <li><a href="index.html">トップ</a></li>
-            <li><a href="#">私たちの挑戦</a></li>
-            <li><a href="#">マシン紹介</a></li>
-            <li><a href="#">スポンサー・ご支援</a></li>
-        </ul>
-    </nav>
+<!-- ▼ ローディング画面 ▼ -->
+<div id="loading-screen">
 
-    <!-- 今日の日付 -->
-    <p class="today"></p>
+    <!-- 棒タイプ -->
+    <div id="loading-bar-container" class="loading-type">
+        <div id="loading-bar"></div>
+        <div id="loading-percent">0%</div>
+    </div>
 
-    <!-- メインコンテンツ -->
-    <main class="content-box">
-        <h1>篠ノ井 EMC Tech Club</h1>
+    <!-- ぐるぐるタイプ -->
+    <div id="loading-spinner" class="loading-type">
+        <div class="spinner"></div>
+        <p>読み込み中...</p>
+    </div>
 
-        <p class="lead">
-            「エコマラソン」と「エコマイレッジチャレンジ」に挑戦！<br>
-            技術で燃費効率の限界を突破します。
-        </p>
+</div>
 
-        <img src="img/logo.png" class="club-logo" alt="クラブロゴ">
-    </main>
-
-    <!-- 下メニュー -->
-    <nav class="main-nav bottom-nav">
-        <ul>
-            <li><a href="index.html">トップ</a></li>
-            <li><a href="#">私たちの挑戦</a></li>
-            <li><a href="#">マシン紹介</a></li>
-            <li><a href="#">スポンサー・ご支援</a></li>
-        </ul>
-    </nav>
-
-    <footer>
-        © 2025 篠ノ井技術クラブ
-
-        <!-- アクセスカウンター -->
-        <div class="counter">
-            <nobr><table border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><a href="https://ctr.stylemap.co.jp/"><img src="https://www.f-counter.net/ani1/66/1763905532/" border="0"></a></td>
-            <td><a href="https://ctr.stylemap.co.jp/"><img src="https://www.f-counter.net/ani2/66/1763905532/" border="0"></a></td></tr></tbody></table></nobr>
-        </div>
-    </footer>
+<!-- ▼ 読み込み後に表示される本体 ▼ -->
+<h1>篠ノ井技術クラブ</h1>
+<p>読み込み完了！</p>
 
 </body>
 </html>
