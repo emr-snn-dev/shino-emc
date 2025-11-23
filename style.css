@@ -1,87 +1,64 @@
-/* ページ背景と基準 */
-body {
-    font-family: "Meiryo", sans-serif;
-    margin: 0;
-    background: #f6f9fc;
-    color: #08274a;
-}
-
-/* ローディング横バー */
-#loading-bar {
-    width: 0;
-    height: 4px;
-    background: #ff5500;
+/* ローディング画面全体 */
+#loading-screen {
     position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 999;
+    inset: 0;
+    background: #003a80; /* 濃い青 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9999;
 }
 
-/* メニュー */
-.main-nav {
-    background: #032c63;
-    padding: 12px 0;
-    text-align: center;
+/* すべてのローディング方式は最初非表示 */
+.loading-type {
+    display: none;
 }
 
-.main-nav ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+/* ＝＝＝＝＝＝＝＝＝＝＝ */
+/*  棒タイプバー            */
+/* ＝＝＝＝＝＝＝＝＝＝＝ */
+#loading-bar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.main-nav li {
-    display: inline-block;
-    margin: 0 20px;
+#loading-bar {
+    width: 0%;
+    height: 12px;
+    background: #ffffff;
+    transition: width 0.05s;
+    border-radius: 5px;
 }
 
-.main-nav a {
-    color: #fff;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-/* メイン内容 */
-.content-box {
-    width: 80%;
-    margin: 50px auto;
-    background: white;
-    padding: 60px;
-    text-align: center;
-    border-radius: 8px;
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
-}
-
-h1 {
-    font-size: 48px;
-    letter-spacing: 3px;
-    margin-bottom: 30px;
-}
-
-.lead {
+#loading-percent {
+    margin-top: 8px;
+    color: white;
     font-size: 20px;
-    line-height: 1.8em;
-    margin-bottom: 30px;
+    font-weight: bold;
 }
 
-.club-logo {
-    width: 200px;
-}
-
-/* 日付 */
-.today {
-    text-align: right;
-    padding-right: 5%;
-    color: #444;
-    margin-top: 15px;
-}
-
-/* フッター */
-footer {
+/* ＝＝＝＝＝＝＝＝＝＝＝ */
+/*  ぐるぐるタイプ           */
+/* ＝＝＝＝＝＝＝＝＝＝＝ */
+#loading-spinner {
+    color: white;
     text-align: center;
-    margin: 40px 0;
 }
 
-.counter {
-    margin-top: 10px;
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid white;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
 }
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
