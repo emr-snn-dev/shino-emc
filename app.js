@@ -1,42 +1,54 @@
-// ======================================
-// ローディングアニメーション
-// ======================================
+// ↓ ページ読込直後に実行
 document.addEventListener("DOMContentLoaded", () => {
-    const loader = document.getElementById("loading");
-    const progress = document.querySelector(".loading-progress");
-    const text = document.getElementById("loading-text");
 
-    let percent = 0;
+    const loadingScreen = document.createElement("div");
+    loadingScreen.id = "loading-screen";
 
-    const timer = setInterval(() => {
-        percent++;
-        progress.style.width = percent + "%";
-        text.textContent = percent + "%";
+    // ランダムで
+    const mode = Math.random() < 0.5 ? "bar" : "spinner";
 
-        if (percent >= 100) {
-            clearInterval(timer);
+    if (mode === "bar") {
+        loadingScreen.innerHTML = `
+            <div style="font-size:20px">読み込み中...</div>
+            <div class="loading-bar">
+                <div class="loading-bar-inner" id="bar"></div>
+            </div>
+            <div id="percent" style="margin-top:10px;font-size:14px;">0%</div>
+        `;
+    } else {
+        loadingScreen.innerHTML = `
+            <div style="font-size:20px">読み込み中...</div>
+            <div class="spinner"></div>
+        `;
+    }
 
-            loader.style.opacity = "0";
-            loader.style.pointerEvents = "none";
+    document.body.appendChild(loadingScreen);
+
+
+    //===============================
+    // 進捗フェイクシミュレーション
+    //===============================
+    let progress = 0;
+    const interval = setInterval(() => {
+        progress += Math.random() * 8;
+        if (progress > 100) progress = 100;
+
+        const bar = document.getElementById("bar");
+        const percent = document.getElementById("percent");
+
+        if (bar) bar.style.width = progress + "%";
+        if (percent) percent.textContent = Math.floor(progress) + "%";
+
+        if (progress >= 100) {
+            clearInterval(interval);
 
             setTimeout(() => {
-                loader.style.display = "none";
-            }, 600);
+                loadingScreen.style.opacity = 0;
+                setTimeout(() => {
+                    loadingScreen.remove();
+                    document.querySelector(".page-content").style.display = "block";
+                }, 500);
+            }, 300);
         }
-    }, 15); // 読み込み速度（ms）調整
+    }, 120);
 });
-
-// ======================================
-// 背景モーション（青が動く演出例）
-// ======================================
-document.body.style.background = `
-radial-gradient(circle at 30% 20%, #e7f2ff, #d0e7ff),
-radial-gradient(circle at 80% 70%, #f0f8ff, #d6e8ff)
-`;
-
-let bgPos = 0;
-setInterval(() => {
-    bgPos += 0.1;
-    document.body.style.backgroundPosition = `${bgPos}px ${bgPos}px`;
-}, 50);
-
