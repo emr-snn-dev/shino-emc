@@ -1,144 +1,79 @@
-/* ===============================
-   リセット
-================================ */
-* {
+/* =========================
+   全体
+========================= */
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-body {
+    background: #f3f6fc;
     font-family: "Yu Gothic", sans-serif;
-    background: #f5f9ff;
-    color: #222;
 }
 
-/* ===============================
+/* =========================
    ローディング画面
-================================ */
-.loading-screen {
+========================= */
+#loading-screen {
     position: fixed;
-    inset: 0;
-    background: #0044aa;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #002b67;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 99999;
-    transition: 0.6s;
+    color: white;
+    font-size: 18px;
+    z-index: 9999;
 }
 
+/* バー型 */
 .loading-bar {
     width: 70%;
-    max-width: 400px;
-    height: 10px;
-    background: rgba(255, 255, 255, 0.2);
+    height: 8px;
     border-radius: 6px;
     overflow: hidden;
+    background: rgba(255,255,255,0.2);
+    margin-top: 20px;
 }
 
-.loading-progress {
+.loading-bar-inner {
     width: 0%;
     height: 100%;
-    background: white;
-    border-radius: 6px;
-    transition: 0.1s;
+    background: #4fd2ff;
+    transition: width .2s;
 }
 
-#loading-text {
-    margin-top: 8px;
-    color: white;
-    font-size: 14px;
+/* グルグル型（ランダム表示用） */
+.spinner {
+    width: 45px;
+    height: 45px;
+    border: 5px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 1s infinite linear;
+    margin-top: 20px;
 }
 
-/* ===============================
-   ヘッダー
-================================ */
-header, #site-header {
-    width: 100%;
-    background: #0044aa;
-    color: white;
+@keyframes spin {
+    to { transform: rotate(360deg); }
 }
 
-header nav ul,
-#site-header nav ul {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    list-style: none;
-    padding: 1rem 0;
+/* コンテンツは最初隠す */
+.page-content {
+    display: none;
 }
 
-header nav ul li a,
-#site-header nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
 
-/* ===============================
-   セクション
-================================ */
+/* =========================
+   コンテンツ表示
+========================= */
 section {
-    padding: 40px 20px;
+    background: white;
+    width: 80%;
     max-width: 900px;
-    margin: auto;
-}
-
-h1 {
-    font-size: 2.2rem;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-h2 {
-    margin-top: 30px;
-    font-size: 1.5rem;
-}
-
-/* ===============================
-   フッター
-================================ */
-footer, #site-footer {
-    background: #00285c;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-}
-
-footer ul, 
-#site-footer ul {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-    justify-content: center;
-    margin-bottom: 10px;
-}
-
-footer ul li a,
-#site-footer ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-/* ===============================
-   スマホ対応
-================================ */
-@media (max-width: 600px) {
-    header nav ul,
-    #site-header nav ul,
-    footer ul,
-    #site-footer ul {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    h1 {
-        font-size: 1.8rem;
-    }
-
-    section {
-        padding: 20px;
-    }
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
