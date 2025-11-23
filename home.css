@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+    font-family: "Meiryo", sans-serif;
+    background: #fff;
+}
+
+/* トップメニュー */
+header nav ul,
+footer ul {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 15px 0;
+    margin: 0;
+    background: #003b84;
+    list-style: none;
+}
+
+header nav a,
+footer a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* メイン */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: #e3eefb;
+}
+
+/* お知らせ */
+.news {
+    width: 90%;
+    max-width: 600px;
+    margin: 50px auto;
+}
+
+.news h2 {
+    font-size: 22px;
+    border-left: 6px solid #0059aa;
+    padding-left: 10px;
+}
+
+.news li {
+    list-style: none;
+    padding: 6px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+/* フッター */
+footer {
+    margin-top: 60px;
+    text-align: center;
+    background: #003b84;
+    color: white;
+    padding-bottom: 10px;
+}
