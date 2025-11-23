@@ -1,35 +1,17 @@
-// ─────────────────────────────
-//  お知らせデータ
-// ─────────────────────────────
-const newsList = [
+const NEWS_DATA = [
     {
-        date: "2025-11-23",
-        title: "ホームページ公開しました！"
+        category: "クラブから",
+        text: "新車開発 第2フェーズに入りました",
+        date: "2025-02-01"
     },
     {
-        date: "2025-11-22",
-        title: "マシン整備を開始しました"
+        category: "お知らせ",
+        text: "公式ホームページ公開",
+        date: "2025-01-10"
     },
     {
-        date: "2025-11-20",
-        title: "スポンサー募集開始"
+        category: "開発より",
+        text: "燃費制御のテスト結果を改善しました",
+        date: "2025-01-05"
     }
 ];
-
-// ─────────────────────────────
-//  ページ表示
-// ─────────────────────────────
-function displayNews() {
-    const area = document.getElementById("news-area");
-    if (!area) return;
-
-    area.innerHTML = newsList.map(news => `
-        <div class="news-item">
-            <span class="news-date">${news.date}</span>
-            <span class="news-title">${news.title}</span>
-        </div>
-    `).join("");
-}
-
-// 読み込み時に出力
-document.addEventListener("DOMContentLoaded", displayNews);
