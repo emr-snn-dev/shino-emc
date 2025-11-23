@@ -1,146 +1,61 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>篠ノ井技術クラブ</title>
-
-<style>
-    /* 画面全体中央寄せ */
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: sans-serif;
-        background: #f8f8f8;
-        text-align: center;
-    }
-
-    /* ページ読み込みアニメーション */
-    #loader {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 0;
-        height: 4px;
-        background: #003366;
-        animation: loadBar 1.2s ease-out forwards;
-        z-index: 9999;
-    }
-
-    @keyframes loadBar {
-        from { width: 0; }
-        to   { width: 100%; }
-    }
-
-    /* ナビゲーション（上・下とも） */
-    nav {
-        padding: 12px;
-        background: #003366;
-        text-align: center;
-    }
-
-    nav a {
-        margin: 0 15px;
-        color: white;
-        font-weight: bold;
-        text-decoration: none;
-    }
-
-    /* コンテンツ中央 */
-    main {
-        margin: 0 auto;
-        padding: 20px;
-        max-width: 900px;
-        background: white;
-        border-radius: 6px;
-    }
-
-    footer {
-        margin-top: 30px;
-        padding: 20px;
-        text-align: center;
-    }
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>篠ノ井技術クラブ</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
 
-<!-- ローディングバー -->
-<div id="loader"></div>
+    <!-- 読み込みアニメーションバー -->
+    <div id="loading-bar"></div>
 
-<!-- 画面最上部ナビ -->
-<nav>
-    <a href="#">トップ</a>
-    <a href="#">私たちの挑戦</a>
-    <a href="#">マシン紹介</a>
-    <a href="#">スポンサー・ご支援</a>
-</nav>
+    <!-- 上メニュー -->
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">トップ</a></li>
+            <li><a href="#">私たちの挑戦</a></li>
+            <li><a href="#">マシン紹介</a></li>
+            <li><a href="#">スポンサー・ご支援</a></li>
+        </ul>
+    </nav>
 
-<header>
-    <h1>篠ノ井技術クラブ</h1>
-    <p>テクノロジーで燃費の限界に挑戦</p>
-</header>
+    <!-- 今日の日付 -->
+    <p class="today"></p>
 
-<main>
-    <h2>今日の日付: 2025年11月23日日曜日</h2>
+    <!-- メインコンテンツ -->
+    <main class="content-box">
+        <h1>篠ノ井 EMC Tech Club</h1>
 
-    <h2>篠ノ井技術クラブとは</h2>
-    <p>
-        「エコマラソン」と「エコマイレッジチャレンジ」に挑戦し、
-        技術を通して燃費効率の限界を追求するクラブです。
-    </p>
+        <p class="lead">
+            「エコマラソン」と「エコマイレッジチャレンジ」に挑戦！<br>
+            技術で燃費効率の限界を突破します。
+        </p>
 
-    <h3>活動：燃費効率の追求</h3>
+        <img src="img/logo.png" class="club-logo" alt="クラブロゴ">
+    </main>
 
-    <p><strong>🚗 エコマラソン</strong><br>
-        少ない燃料で長く走る耐久形式レース。</p>
+    <!-- 下メニュー -->
+    <nav class="main-nav bottom-nav">
+        <ul>
+            <li><a href="index.html">トップ</a></li>
+            <li><a href="#">私たちの挑戦</a></li>
+            <li><a href="#">マシン紹介</a></li>
+            <li><a href="#">スポンサー・ご支援</a></li>
+        </ul>
+    </nav>
 
-    <p><strong>⛽ エコマイレッジチャレンジ</strong><br>
-        1Lで何km走れるかを競う燃費競技。</p>
+    <footer>
+        © 2025 篠ノ井技術クラブ
 
-    <p><strong>🔧 技術開発</strong><br>
-        車体軽量化・駆動系改善・バッテリー制御など多方面に取り組んでいます。</p>
-
-    <h2>最新情報</h2>
-    <p><strong>ホームページ制作</strong><br>
-    掲載日: 2025-11-22<br>
-    一からホームページ制作しました</p>
-</main>
-
-<!-- 画面最下部ナビ -->
-<nav>
-    <a href="#">トップ</a>
-    <a href="#">私たちの挑戦</a>
-    <a href="#">マシン紹介</a>
-    <a href="#">スポンサー・ご支援</a>
-</nav>
-
-<footer>
-    © 2025 篠ノ井技術クラブ. All rights reserved.<br>
-
-    <!-- アクセスカウンター -->
-    <nobr>
-        <table border="0" cellspacing="0" cellpadding="0">
-            <tbody>
-                <tr>
-                    <td>
-                        <a href="https://ctr.stylemap.co.jp/">
-                            <img src="https://www.f-counter.net/ani1/66/1763905532/"
-                                 alt="無料アクセスカウンター"
-                                 border="0">
-                        </a>
-                    </td>
-                    <td>
-                        <a href="https://ctr.stylemap.co.jp/">
-                            <img src="https://www.f-counter.net/ani2/66/1763905532/"
-                                 alt="無料アクセスカウンター"
-                                 border="0">
-                        </a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </nobr>
-</footer>
+        <!-- アクセスカウンター -->
+        <div class="counter">
+            <nobr><table border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><a href="https://ctr.stylemap.co.jp/"><img src="https://www.f-counter.net/ani1/66/1763905532/" border="0"></a></td>
+            <td><a href="https://ctr.stylemap.co.jp/"><img src="https://www.f-counter.net/ani2/66/1763905532/" border="0"></a></td></tr></tbody></table></nobr>
+        </div>
+    </footer>
 
 </body>
 </html>
