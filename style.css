@@ -1,47 +1,87 @@
-/* 画面全体中央寄せ */
+/* ページ背景と基準 */
 body {
+    font-family: "Meiryo", sans-serif;
+    margin: 0;
+    background: #f6f9fc;
+    color: #08274a;
+}
+
+/* ローディング横バー */
+#loading-bar {
+    width: 0;
+    height: 4px;
+    background: #ff5500;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+/* メニュー */
+.main-nav {
+    background: #032c63;
+    padding: 12px 0;
+    text-align: center;
+}
+
+.main-nav ul {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
-    background: #f8f8f8;
-    text-align: center;
+    list-style: none;
 }
 
-/* ナビゲーション（上・下） */
-.nav {
-    padding: 12px;
-    background: #003366;
-    text-align: center;
+.main-nav li {
+    display: inline-block;
+    margin: 0 20px;
 }
 
-.nav a {
-    margin: 0 15px;
-    color: white;
+.main-nav a {
+    color: #fff;
     font-weight: bold;
     text-decoration: none;
 }
 
-/* コンテンツ中央 */
-main {
-    margin: 0 auto;
-    padding: 20px;
-    max-width: 900px;
+/* メイン内容 */
+.content-box {
+    width: 80%;
+    margin: 50px auto;
     background: white;
-    border-radius: 6px;
+    padding: 60px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
 }
 
+h1 {
+    font-size: 48px;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+}
+
+.lead {
+    font-size: 20px;
+    line-height: 1.8em;
+    margin-bottom: 30px;
+}
+
+.club-logo {
+    width: 200px;
+}
+
+/* 日付 */
+.today {
+    text-align: right;
+    padding-right: 5%;
+    color: #444;
+    margin-top: 15px;
+}
+
+/* フッター */
 footer {
-    margin-top: 30px;
-    padding: 20px;
+    text-align: center;
+    margin: 40px 0;
 }
 
-/* ローディングバー初期 */
-#loader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 4px;
-    background: #003366;
-    z-index: 9999;
+.counter {
+    margin-top: 10px;
 }
