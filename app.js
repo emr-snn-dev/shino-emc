@@ -1,65 +1,42 @@
-// Loading + Background
-window.addEventListener("load", () => {
+// ======================================
+// ローディングアニメーション
+// ======================================
+document.addEventListener("DOMContentLoaded", () => {
+    const loader = document.getElementById("loading");
+    const progress = document.querySelector(".loading-progress");
+    const text = document.getElementById("loading-text");
 
-    // ----- 2種類のローディングをランダム表示 -----
-    const loaders = [
-        `<div class="loader-circle"></div>`,
-        `<div class="loader-bar"><div class="loader-bar-fill"></div></div>`
-    ];
-
-    const randomLoader = loaders[Math.floor(Math.random() * loaders.length)];
-
-    const loadingScreen = document.createElement("div");
-    loadingScreen.className = "loading-screen";
-    loadingScreen.innerHTML = randomLoader;
-    document.body.appendChild(loadingScreen);
-
-    // ----- バーの場合は進む速度を乱数に -----
-    let progress = 0;
-    const speed = 20 + Math.random() * 40;
+    let percent = 0;
 
     const timer = setInterval(() => {
-        progress++;
+        percent++;
+        progress.style.width = percent + "%";
+        text.textContent = percent + "%";
 
-        const bar = document.querySelector(".loader-bar-fill");
-        if (bar) bar.style.width = progress + "%";
-
-        if (progress >= 100) {
+        if (percent >= 100) {
             clearInterval(timer);
 
-            loadingScreen.style.opacity = 0;
-            setTimeout(() => loadingScreen.remove(), 600);
+            loader.style.opacity = "0";
+            loader.style.pointerEvents = "none";
+
+            setTimeout(() => {
+                loader.style.display = "none";
+            }, 600);
         }
-    }, speed);
-
-    // ----- 動く背景 -----
-    const bg = document.createElement("div");
-    bg.className = "bg-motion";
-    document.body.appendChild(bg);
+    }, 15); // 読み込み速度（ms）調整
 });
 
+// ======================================
+// 背景モーション（青が動く演出例）
+// ======================================
+document.body.style.background = `
+radial-gradient(circle at 30% 20%, #e7f2ff, #d0e7ff),
+radial-gradient(circle at 80% 70%, #f0f8ff, #d6e8ff)
+`;
 
-// ------------------------------
-// News Loading
-// ------------------------------
-window.addEventListener("DOMContentLoaded", () => {
+let bgPos = 0;
+setInterval(() => {
+    bgPos += 0.1;
+    document.body.style.backgroundPosition = `${bgPos}px ${bgPos}px`;
+}, 50);
 
-    const list = document.querySelector("#news-list");
-
-    if (!list || !window.NEWS_DATA) return;
-
-    list.innerHTML = "";
-
-    NEWS_DATA.forEach(item => {
-        const li = document.createElement("li");
-        li.innerHTML = `
-            <strong>[${item.category}]</strong>
-            ${item.text}
-            <span style="display:block;font-size:12px;opacity:0.7;">
-                ${item.date}
-            </span>
-        `;
-        list.append(li);
-    });
-
-});
