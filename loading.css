@@ -4,7 +4,7 @@ body {
     font-family: "Meiryo", sans-serif;
 }
 
-/* ローディング画面全体 */
+/* 画面全体 */
 #loading-screen {
     position: fixed;
     inset: 0;
@@ -17,23 +17,22 @@ body {
     transition: opacity 0.3s;
 }
 
-/* コンテナ */
 #loading-container {
     text-align: center;
 }
 
-/* 棒のローダー */
+/* 棒アニメ */
 #loader-bar {
     width: 0%;
     height: 6px;
-    background: #00aaff;
+    background: #00b3ff;
     border-radius: 3px;
     margin-bottom: 15px;
     transition: width 0.1s;
     display: none;
 }
 
-/* 回転ローダー */
+/* 回転アニメ */
 #loader-circle {
     width: 40px;
     height: 40px;
@@ -41,16 +40,16 @@ body {
     border-top-color: transparent;
     border-radius: 50%;
     margin: auto;
-    animation: spin 0.8s linear infinite;
     display: none;
+    animation: spin 0.8s linear infinite;
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
-#loading-text {
-    font-size: 18px;
-    margin-top: 10px;
-}
