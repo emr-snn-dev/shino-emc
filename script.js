@@ -1,56 +1,34 @@
-// -------------------
-// ランダムで選択
-// -------------------
-const type = Math.random() < 0.5 ? "bar" : "spinner";
+// ─────────────────────────────
+//  お知らせデータ
+// ─────────────────────────────
+const newsData = [
+    { date: "2025-11-23", title: "ホームページ公開しました" },
+    { date: "2025-11-22", title: "マシン整備を開始しました" },
+    { date: "2025-11-20", title: "スポンサー募集開始" }
+];
 
-const body = document.body;
-const screen = document.getElementById("loading-screen");
+// ─────────────────────────────
+//  表示処理
+// ─────────────────────────────
+function loadNews() {
 
-// 棒の要素
-const barContainer = document.getElementById("loading-bar-container");
-const bar = document.getElementById("loading-bar");
-const percentText = document.getElementById("loading-percent");
+    const target = document.getElementById("news-list");
 
-// ぐるぐる
-const spinner = document.getElementById("loading-spinner");
+    // HTMLにIDが無いと停止（デバッグ用）
+    if (!target) {
+        console.error("news-list がHTML内にありません");
+        return;
+    }
 
-
-// -------------------
-// タイプごとの動作
-// -------------------
-if (type === "bar") {
-    barContainer.style.display = "flex";
-
-    let percent = 0;
-    const timer = setInterval(() => {
-        percent++;
-        bar.style.width = percent + "%";
-        percentText.textContent = percent + "%";
-
-        if (percent >= 100) {
-            clearInterval(timer);
-            finishLoading();
-        }
-    }, 20);
-
-} else {
-    spinner.style.display = "block";
-
-    // ぐるぐるは1秒くらいで解除
-    setTimeout(() => {
-        finishLoading();
-    }, 1000);
+    target.innerHTML = newsData
+        .map(item => `
+            <li>
+                <span style="font-weight:bold; color:#0070ff">${item.date}</span>
+                <span style="margin-left:8px">${item.title}</span>
+            </li>
+        `)
+        .join("");
 }
 
-
-// -------------------
-// ローディング解除
-// -------------------
-function finishLoading() {
-    screen.style.opacity = 0;
-
-    setTimeout(() => {
-        screen.remove();
-        body.style.display = "block";
-    }, 300);
-}
+// 画面読み込み時に実行
+document.addEventListener("DOMContentLoaded", loadNews);
