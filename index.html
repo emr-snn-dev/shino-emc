@@ -3,40 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>篠ノ井技術クラブ</title>
+
     <link rel="stylesheet" href="style.css">
 
-    <!-- ローディング & 共通パーツ -->
+    <!-- ローディング -->
     <script src="app.js" defer></script>
-    <script src="news.js" defer></script>
-    <script src="header.js" defer></script>
-    <script src="footer.js" defer></script>
 </head>
 <body>
 
-<!-- 🔵 ローディング画面（これが無いと表示されない） -->
-<div id="loading" class="loading-screen">
-    <div class="loading-bar">
-        <div class="loading-progress"></div>
-    </div>
-    <p id="loading-text">0%</p>
+<!-- 🔻ローディング後に表示されるエリア -->
+<div class="page-content">
+
+    <section>
+        <h1>篠ノ井技術クラブ</h1>
+        <p>エコマラソン ＆ エコマイレッジに挑戦！</p>
+    </section>
+
+    <section>
+        <h2>最新のお知らせ</h2>
+        <ul id="news-list">
+            <li>読み込み中...</li>
+        </ul>
+    </section>
+
 </div>
-
-<!-- 🔻 共通ヘッダー -->
-<div id="site-header"></div>
-
-<!-- コンテンツ -->
-<section>
-    <h1>篠ノ井技術クラブ</h1>
-    <p>エコマラソン ＆ エコマイレッジに挑戦！</p>
-</section>
-
-<section>
-    <h2>最新のお知らせ</h2>
-    <ul id="news-list"><li>読み込み中...</li></ul>
-</section>
-
-<!-- 🔻 共通フッター -->
-<div id="site-footer"></div>
 
 </body>
 </html>
+
