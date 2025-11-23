@@ -3,33 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>篠ノ井技術クラブ</title>
+    <title>Loading...</title>
     <link rel="stylesheet" href="loading.css">
-    <script defer src="loading.js"></script>
 </head>
+<body>
 
-<body style="display:none;">
+    <!-- ローディング画面 -->
+    <div id="loading-screen">
+        <div id="loading-container">
 
-<!-- ▼ ローディング画面 ▼ -->
-<div id="loading-screen">
+            <!-- ランダムアニメーション（棒 or 回転） -->
+            <div id="loader-bar"></div>
+            <div id="loader-circle"></div>
 
-    <!-- 棒タイプ -->
-    <div id="loading-bar-container" class="loading-type">
-        <div id="loading-bar"></div>
-        <div id="loading-percent">0%</div>
+            <p id="loading-text">読み込み中... <span id="percent">0</span>%</p>
+        </div>
     </div>
 
-    <!-- ぐるぐるタイプ -->
-    <div id="loading-spinner" class="loading-type">
-        <div class="spinner"></div>
-        <p>読み込み中...</p>
-    </div>
-
-</div>
-
-<!-- ▼ 読み込み後に表示される本体 ▼ -->
-<h1>篠ノ井技術クラブ</h1>
-<p>読み込み完了！</p>
-
+    <script src="loading.js"></script>
 </body>
 </html>
