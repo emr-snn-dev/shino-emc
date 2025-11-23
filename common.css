@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    font-family: "Noto Sans JP", sans-serif;
+    background: #f9f9f9;
+    color: #222;
+}
+
+/* ヘッダー */
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px;
+    background: #004b9f;
+    margin: 0;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+}
+
+header nav ul li a.active,
+header nav ul li a:hover {
+    background: rgba(255,255,255,0.25);
+    border-radius: 6px;
+}
+
+/* タイトル */
+.page-title {
+    background: #004b9f;
+    color: white;
+    padding: 50px 0;
+    text-align: center;
+}
+
+/* テーブル */
+.info-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 15px;
+}
+
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.info-table th {
+    background: #e8eef5;
+    padding: 12px;
+    width: 30%;
+    border: 1px solid #ddd;
+}
+
+.info-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+/* フッター */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #004b9f;
+    color: white;
+    margin-top: 40px;
+}
