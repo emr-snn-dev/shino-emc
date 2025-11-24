@@ -1,80 +1,44 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="utf-8">
-    <title>篠ノ井技術クラブ</title>
+    <meta charset="UTF-8">
+    <title>篠ノ井技術クラブ | トップ</title>
     <link rel="stylesheet" href="/shino-emc/style.css">
 </head>
 <body>
 
-  <div class="container">
-    <header class="site-header">
-      <div class="brand">
-        <!-- 開発環境プレビュー用ロゴ（ローカルファイルパス） -->
-        <img src="/mnt/data/A_hand-drawn_and_digitally_rendered_logo_for_a_Jap.png"
-             alt="篠ノ井技術クラブ ロゴ" style="width:72px;height:72px;object-fit:contain;">
-        <!-- GitHub 用フォールバック（アップロードするならこちらにも画像を置いてください） -->
-        <!-- <img src="/shino-emc/images/logo.png" alt="logo" /> -->
-        <div>
-          <h1>篠ノ井技術クラブ</h1>
-          <div class="subtitle">エコマラソン & エコマイレッジ挑戦チーム</div>
-        </div>
-      </div>
+<div id="loading" class="loading"></div>
+<div id="newsArea"></div>
 
-      <div class="header-controls">
-        <!-- 空き広告枠（js/main.js が ad を差し込みます） -->
-        <div class="ad-inline" style="width:140px;"></div>
-      </div>
-    </header>
-
-    <nav class="menu">
-      <a href="/shino-emc/index.html">トップ</a>
-      <a href="/shino-emc/challenge.html">私たちの挑戦</a>
-      <a href="/shino-emc/machine.html">マシン紹介</a>
-      <a href="/shino-emc/support.html">スポンサー・ご支援</a>
-      <a href="/shino-emc/operator.html">運営情報</a>
+<header>
+    <h1>篠ノ井技術クラブ</h1>
+    <nav>
+        <ul>
+            <li><a href="/shino-emc/index.html">トップ</a></li>
+            <li><a href="/shino-emc/challenge.html">挑戦</a></li>
+            <li><a href="/shino-emc/machine.html">マシン</a></li>
+            <li><a href="/shino-emc/support.html">サポート</a></li>
+            <li><a href="/shino-emc/operator.html">運営</a></li>
+        </ul>
     </nav>
+</header>
 
-    <section class="hero container">
-      <h2>エコマラソン & エコマイレッジに挑戦！</h2>
-      <p>技術で燃費の限界を追求する学生チーム。車体開発・制御・解析を行っています。</p>
-    </section>
+<main>
+    <h2>エコマラソン＆エコマイレッジ挑戦！</h2>
+    <p>信州から世界へ。燃費の限界へ。</p>
 
-    <section class="news-section container">
-      <div class="section-head">
-        <h3>最新のお知らせ</h3>
-        <div class="ad-inline"></div>
-      </div>
+    <!-- ● 忍者AdMax 広告枠 -->
+    <!-- admax -->
+    <script src="https://adm.shinobi.jp/s/2ecfa2b9f787a0094565767bec84c8fb"></script>
+    <!-- admax -->
 
-      <!-- ニュースカードがここに入る -->
-      <div class="news-container"></div>
-    </section>
+</main>
 
-    <footer class="site-footer container">
-      <div style="margin-bottom:12px;">
-        <!-- 広告（フッター） -->
-        <!-- admax -->
-        <script src="https://adm.shinobi.jp/s/2ecfa2b9f787a0094565767bec84c8fb"></script>
-        <!-- /admax -->
-      </div>
-      <div>© 2025 篠ノ井技術クラブ</div>
-    </footer>
-  </div>
+<footer>
+    © 篠ノ井技術クラブ
+</footer>
 
-  <!-- ローディングオーバーレイ -->
-  <div id="loading-wrap" style="display:none;">
-    <div class="loader">
-      <div style="font-weight:700;color:#072">ロード中…</div>
-      <div style="height:10px;background:#eef;margin-top:12px;border-radius:8px;overflow:hidden;">
-        <div class="bar" style="width:0%"></div>
-      </div>
-      <div class="text">ページ読み込み中…</div>
-    </div>
-  </div>
-
-  <!-- 必須スクリプト（絶対パスで全ページ共通） -->
-  <script src="/shino-emc/js/news.js" defer></script>
-  <script src="/shino-emc/js/main.js" defer></script>
+<script src="/shino-emc/script.js"></script>
 </body>
 </html>
 
