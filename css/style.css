@@ -1,89 +1,105 @@
-/* ------------------------------------------------
-   ローディング画面
------------------------------------------------- */
+
+/* =====================================
+   全体
+===================================== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+    background: #eef3ff;  /* 明るい青 */
+    color: #111;
+}
+
+/* =====================================
+   共通カードデザイン
+===================================== */
+.card {
+    width: 90%;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,30,0.08);
+}
+
+/* =====================================
+   ヘッダー（自動挿入）
+===================================== */
+header {
+    width: 100%;
+    background: #0b2b50;  /* 紺 */
+    padding: 15px 0;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* =====================================
+   フッター（自動挿入）
+===================================== */
+footer {
+    width: 100%;
+    background: #0b2b50;
+    margin-top: 50px;
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+footer ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* =====================================
+   ローディング
+===================================== */
 #loading-screen {
     position: fixed;
     inset: 0;
-    background: linear-gradient(135deg, #d8f0ff, #1a3768);
+    background: linear-gradient(135deg, #0b2b50, #3478ff);
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 99999;
-    opacity: 1;
-    transition: opacity .5s;
+    z-index: 9999;
 }
 
-/* 背景ゆらぎ光 */
-#loading-screen::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(circle at 30% 30%, rgba(0,170,255,.45), transparent),
-        radial-gradient(circle at 80% 70%, rgba(0,65,160,.35), transparent);
-    animation: bgwave 6s infinite linear;
+/* シンプルな回転アニメ */
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 6px solid #c8d6ff;
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
 }
 
-@keyframes bgwave {
-    0%   { transform: translate(0,0); }
-    50%  { transform: translate(-20px, 12px); }
-    100% { transform: translate(0,0); }
+@keyframes spin {
+    to { transform: rotate(360deg); }
 }
 
-/* 銀のバー枠 */
-.loading-bar {
-    width: 260px;
-    height: 12px;
-    border-radius: 6px;
-    overflow: hidden;
-    background: linear-gradient(90deg, #e8edf3, #b7c0cc);
-    box-shadow: 0 0 12px rgba(30,80,150,.6);
-}
-
-/* 青→水色の進行バー */
-.loading-fill {
-    width: 0%;
-    height: 100%;
-    background: linear-gradient(90deg, #0077ff, #00eaff);
-    transition: width .16s;
-}
-
-/* スマホ小さめ */
-@media (max-width: 600px) {
-    .loading-bar {
-        width: 200px;
-        height: 10px;
-    }
-}
-
-/* ------------------------------------------------
-   ページ本体
------------------------------------------------- */
-
-body {
-    margin: 0;
-    font-family: "Yu Gothic", sans-serif;
-    text-align: center;
-    background: #f7fbff;
-    color: #0d1d3b;
-}
-
-header {
-    padding: 40px 10px;
-}
-
-h1 {
-    font-size: 2.4rem;
-    margin-bottom: 8px;
-}
-
-section {
-    margin: 30px auto;
-    max-width: 720px;
-    padding: 10px 20px;
-}
-
-#news-list {
-    list-style: none;
-    padding: 0;
+/* ローディング終了フェード */
+.fade-out {
+    opacity: 0;
+    transition: 0.4s;
+    pointer-events: none;
 }
