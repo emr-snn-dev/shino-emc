@@ -1,77 +1,254 @@
-body {
+
+/* =======================================
+   0️⃣ CSSリセット
+======================================= */
+* {
   margin: 0;
   padding: 0;
-  background: #02285d;
-  color: #fff;
-  font-family: 'Noto Sans JP', sans-serif;
+  box-sizing: border-box;
 }
 
-/* ---- ナビ ---- */
-.navbar {
-  background: #00193e;
-  padding: 12px;
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  background: #e9f2ff;   /* 明るい背景 */
+  font-family: "Noto Sans JP", sans-serif;
+  color: #002060;
+}
+
+/* =======================================
+   1️⃣ ヘッダー（ロゴ・メニュー）
+======================================= */
+header {
+  background: linear-gradient(90deg, #003090, #0058c8);
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav ul {
+  list-style: none;
   display: flex;
-  gap: 10px;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.15);
+  transition: 0.3s;
+}
+
+nav ul li a:hover {
+  background: white;
+  color: #003090;
+}
+
+/* =======================================
+   2️⃣ メインレイアウト
+======================================= */
+section {
+  width: 90%;
+  max-width: 1000px;
+  margin: 25px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.08);
+}
+
+/* =======================================
+   3️⃣ ホーム見出し
+======================================= */
+section h1 {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #003090;
+}
+
+/* =======================================
+   4️⃣ NEWS（お知らせ）
+======================================= */
+#news-list {
+  list-style: none;
+  margin-top: 10px;
+}
+
+#news-list li {
+  background: #f2f6ff;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  border-left: 4px solid #003090;
+  border-radius: 6px;
+  animation: cardFade 0.35s ease;
+}
+
+@keyframes cardFade {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* NEW! マーク */
+.badge-new {
+  display: inline-block;
+  background: #ff0040;
+  color: white;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-right: 6px;
+}
+
+/* =======================================
+   5️⃣ フッター
+======================================= */
+footer {
+  margin-top: 40px;
+  padding: 25px 0;
+  background: #002060;
+  color: white;
+  text-align: center;
+}
+
+footer ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
   flex-wrap: wrap;
 }
 
-.navbar a {
-  background: white;
-  color: #00245a;
-  font-weight: bold;
-  padding: 10px 20px;
-  border-radius: 8px;
+footer ul li a {
+  color: white;
   text-decoration: none;
-  display: inline-block;
-  text-align: center;
 }
 
-/* ---- コンテンツ ---- */
-.container {
-  width: min(900px, 95%);
-  margin: 30px auto;
+footer ul li a:hover {
+  text-decoration: underline;
 }
 
-.page-title {
-  font-size: 32px;
-  margin-bottom: 25px;
-  text-align: center;
-}
-
-/* ---- セクションBOX ---- */
-.box {
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.6);
-  border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 25px;
-}
-
-.subtitle {
-  font-size: 22px;
-  margin-bottom: 12px;
-}
-
-/* ---- お知らせ ---- */
-.text {
-  font-size: 16px;
-}
-
-/* ---- 広告 ---- */
-.adbox {
-  text-align: center;
-}
-
-.ad-frame {
-  margin: 0 auto;
-  width: 468px;
-  height: 60px;
-  background: #ccc;
-  color: #444;
-  font-size: 25px;
+/* =======================================
+   6️⃣ 読み込みアニメーション
+======================================= */
+#loadingScreen {
+  position: fixed;
+  inset: 0;
+  background: #003090;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  z-index: 20000;
+  color: white;
+  font-size: 24px;
+  flex-direction: column;
 }
 
+/* 横棒 */
+.loading-bar {
+  width: 80%;
+  max-width: 380px;
+  height: 10px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 6px;
+  margin-top: 15px;
+  overflow: hidden;
+  position: relative;
+}
+
+.loading-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #00c6ff, #ffffff);
+  border-radius: 6px;
+  transition: width 0.25s;
+}
+
+/* =======================================
+   7️⃣ ページ下固定 広告
+======================================= */
+.fixed-ad {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(90deg, #002060, #0040a8);
+  text-align: center;
+  z-index: 9999;
+  padding: 6px 0;
+
+  opacity: 0;
+  animation: adFade 0.6s ease 0.5s forwards;
+  box-shadow: 0 -3px 10px rgba(0,0,0,0.35);
+}
+
+/* こいつがないとコンテンツが下に隠れる */
+body {
+  margin-bottom: 110px;
+}
+
+@keyframes adFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* 🔻PC */
+@media screen and (min-width: 1024px) {
+  .fixed-ad script,
+  .fixed-ad iframe {
+    width: 728px !important;
+    height: 90px !important;
+  }
+}
+
+/* 🔻タブレット */
+@media screen and (min-width: 600px) and (max-width: 1023px) {
+  .fixed-ad script,
+  .fixed-ad iframe {
+    width: 468px !important;
+    height: 80px !important;
+  }
+}
+
+/* 🔻スマホ */
+@media screen and (max-width: 599px) {
+  .fixed-ad script,
+  .fixed-ad iframe {
+    width: 320px !important;
+    height: 50px !important;
+  }
+}
+
+/* =======================================
+   8️⃣ 広告 自動非表示
+======================================= */
+.fixed-ad.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* =======================================
+   9️⃣ スマホ強化
+======================================= */
+@media screen and (max-width: 480px) {
+  section {
+    padding: 15px;
+  }
+
+  section h1 {
+    font-size: 26px;
+  }
+
+  nav ul li a {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+}
