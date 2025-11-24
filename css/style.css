@@ -1,79 +1,115 @@
-/* ───────────────
-   背景（青 → 紺 → 銀のグラデ）
-──────────────── */
-body {
+/* ----------------------------------------------------
+   全体設定
+---------------------------------------------------- */
+html, body {
     margin: 0;
-    font-family: "Segoe UI", メイリオ, sans-serif;
-    background: linear-gradient(135deg, #001d3d, #003566, #4b6cb7);
-    color: #fff;
-}
-
-/* 全体レイアウト */
-header,
-nav,
-main,
-footer {
-    width: 90%;
-    max-width: 1000px;
-    margin: 20px auto;
-}
-
-/* ───────────────
-   カード（白×銀）
-──────────────── */
-.card {
-    background: rgba(255, 255, 255, 0.92);
-    color: #111;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(8px);
-}
-
-/* ───────────────
-   ナビゲーション
-──────────────── */
-.main-nav ul {
     padding: 0;
-    display: flex;
-    gap: 25px;
+    font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+    color: #FFFFFF;
+    background: linear-gradient(135deg, #001B44, #0B4AC0, #A8B3C3);
+    min-height: 100vh;
+}
+
+/* スムーズアニメーション */
+* {
+    transition: 0.3s ease;
+}
+
+/* ----------------------------------------------------
+   レイアウト
+---------------------------------------------------- */
+main, header, nav, footer, section {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+/* カード共通デザイン */
+.card {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(6px);
+    border-radius: 12px;
+    box-sizing: border-box;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+/* ----------------------------------------------------
+   タイトルなど
+---------------------------------------------------- */
+h1, h2, h3, p, li {
+    text-align: left;
+    margin: 0 0 12px;
+}
+
+/* ----------------------------------------------------
+   ナビゲーション
+---------------------------------------------------- */
+.main-nav ul {
+    width: 100%;
     list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    gap: 16px;
+    margin: 0 0 20px;
 }
 
 .main-nav a {
-    color: #d8e8ff;
+    color: #DDE8FF;
     text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
+    padding: 6px 12px;
+    border-radius: 6px;
 }
 
 .main-nav a:hover {
-    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.25);
 }
 
-/* ───────────────
-   アニメーション
-──────────────── */
-.fade-in-up {
+/* ----------------------------------------------------
+   ニュース欄
+---------------------------------------------------- */
+#news-list {
+    padding-left: 16px;
+}
+
+#news-list li {
+    margin-bottom: 8px;
+}
+
+/* ----------------------------------------------------
+   ローディングアニメ
+---------------------------------------------------- */
+.loading {
     opacity: 0;
-    transform: translateY(24px);
-    animation: fadeInUp 0.8s ease-out forwards;
 }
 
-.delay-1 { animation-delay: 0.15s; }
-.delay-2 { animation-delay: 0.3s; }
-.delay-3 { animation-delay: 0.45s; }
+.loading.show {
+    opacity: 1;
+}
 
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
+/* ----------------------------------------------------
+   フッター
+---------------------------------------------------- */
+footer {
+    font-size: 14px;
+    color: #E5ECFF;
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    padding-top: 12px;
+}
+
+/* ----------------------------------------------------
+   スマホ対応
+---------------------------------------------------- */
+@media screen and (max-width: 800px) {
+
+    .main-nav ul {
+        flex-direction: column;
+        gap: 8px;
     }
-}
 
-/* フッター */
-.site-footer {
-    text-align: center;
-    color: #ccd6ff;
-    margin-bottom: 40px;
+    .card {
+        padding: 18px;
+    }
 }
