@@ -1,69 +1,107 @@
-/* 背景グラデーション（青 × ネイビー） */
-body {
+/* ------------------------------
+   ベース
+--------------------------------*/
+* {
     margin: 0;
-    font-family: "Segoe UI", sans-serif;
-    color: #fff;
-    background: linear-gradient(135deg, #0f4cbd, #022052);
-    text-align: center;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Noto Sans JP", sans-serif;
 }
 
-/* ヘッダー */
-header {
+body {
+    background: linear-gradient(135deg, #001a58, #003a8b, #1e4fad);
+    color: #fff;
+    min-height: 100vh;
+}
+
+/* ------------------------------
+   コンテンツ表示枠
+--------------------------------*/
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
     padding: 40px 20px;
 }
 
-header h1 {
-    font-size: 48px;
-    margin-bottom: 10px;
-    color: #ffffff;
-    text-shadow: 0 0 8px rgba(255,255,255,0.4);
+/* ------------------------------
+   見出し
+--------------------------------*/
+h1, h2 {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-/* メニュー（中央の丸ボタン） */
-.menu {
-    margin: 40px auto;
+/* ------------------------------
+   メニューボタン（中央揃え）
+--------------------------------*/
+.nav-menu {
+    margin: 30px auto;
     display: flex;
-    gap: 20px;
     justify-content: center;
     flex-wrap: wrap;
+    gap: 15px;
+    padding: 0;
 }
 
-.menu a {
+.nav-menu li {
+    list-style: none;
+}
+
+.nav-menu a {
     display: inline-block;
-    padding: 12px 25px;
+    padding: 12px 22px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.5);
     border-radius: 8px;
-    background: linear-gradient(#e8eefb, #b8cae9);
-    color: #003377;
     text-decoration: none;
-    font-weight: bold;
-    border: 2px solid #ffffff44;
+    color: #fff;
     transition: 0.25s;
+    backdrop-filter: blur(4px);
 }
 
-.menu a:hover {
-    background: #ffffff;
-    box-shadow: 0 0 10px #ffffff88;
+.nav-menu a:hover {
+    background: rgba(255,255,255,0.35);
 }
 
-/* コンテンツカード */
-main {
-    width: 90%;
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: left;
+/* ------------------------------
+   お知らせ表示
+--------------------------------*/
+.news-list {
     background: rgba(255,255,255,0.1);
-    padding: 20px 30px;
     border-radius: 12px;
-    backdrop-filter: blur(6px);
+    padding: 20px;
+    list-style: none;
 }
 
-h2 {
-    margin-top: 0;
+.news-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
 }
 
-/* フッター */
-footer {
-    margin: 40px 0;
-    opacity: 0.85;
-    font-size: 14px;
+.news-list li:last-child {
+    border-bottom: none;
+}
+
+/* ------------------------------
+   ローディング
+--------------------------------*/
+.loading-screen {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 10, 40, 0.8);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    animation: fadeOut 0.8s ease forwards;
+    animation-delay: 1.2s;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
 }
