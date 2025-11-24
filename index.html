@@ -1,41 +1,39 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <title>篠ノ井技術クラブ</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="js/lang.js" defer></script>
-    <script src="js/theme.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-    <h1>篠ノ井技術クラブ</h1>
-    <nav>
-        <ul>
-            <li><a href="index.html">トップ</a></li>
-            <li><a href="challenge.html">挑戦</a></li>
-            <li><a href="machine.html">マシン</a></li>
-            <li><a href="support.html">サポート</a></li>
-            <li><a href="operator.html">運営</a></li>
-        </ul>
-    </nav>
-</header>
+<h1>篠ノ井技術クラブ</h1>
 
-<main>
-    <section class="hero">
-        <h2>エコマラソン＆エコマイレッジ挑戦！</h2>
-        <p>信州から世界へ。燃費の限界へ。</p>
-    </section>
-</main>
+<section id="newsArea"></section>
 
-<footer>
-    <p>© 篠ノ井技術クラブ</p>
-</footer>
+<script>
+(function(){
+    const data = JSON.parse(localStorage.getItem("latestNews"));
+    if(!data) return;
 
-<!-- admax -->
-<script src="https://adm.shinobi.jp/s/2ecfa2b9f787a0094565767bec84c8fb"></script>
-<!-- /admax -->
+    const today = new Date();
+    const created = new Date(data.date);
+    const diff = (today - created) / (1000 * 60 * 60 * 24);
+
+    const showNew = diff <= data.newDays;
+
+    document.getElementById("newsArea").innerHTML = `
+        <div class="news-card">
+            <div>
+                <h3>${data.title}${showNew ? '<span class="new-badge">NEW!</span>' : ''}</h3>
+                <p>${data.content}</p>
+                <small>${data.date}</small>
+            </div>
+        </div>
+    `;
+})();
+</script>
 
 </body>
 </html>
+
