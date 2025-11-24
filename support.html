@@ -1,35 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8" />
-    <title>サポート - 篠ノ井技術クラブ</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <title>スポンサー・ご支援 - 篠ノ井技術クラブ</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="/shino-emc/css/style.css">
 </head>
 <body>
+  <div class="container">
+    <header class="site-header">
+      <div class="brand">
+        <img src="/mnt/data/A_hand-drawn_and_digitally_rendered_logo_for_a_Jap.png" alt="logo" style="width:64px;height:64px;object-fit:contain;">
+        <div><h1>スポンサー・ご支援</h1></div>
+      </div>
+    </header>
 
-<header>
-    <h1>サポート</h1>
-    <nav>
-        <ul>
-            <li><a href="index.html">トップ</a></li>
-            <li><a href="challenge.html">挑戦</a></li>
-            <li><a href="machine.html">マシン</a></li>
-            <li><a href="support.html">サポート</a></li>
-            <li><a href="operator.html">運営</a></li>
-        </ul>
+    <nav class="menu">
+      <a href="/shino-emc/index.html">トップ</a>
+      <a href="/shino-emc/challenge.html">私たちの挑戦</a>
+      <a href="/shino-emc/machine.html">マシン紹介</a>
+      <a href="/shino-emc/support.html">スポンサー・ご支援</a>
+      <a href="/shino-emc/operator.html">運営情報</a>
     </nav>
-</header>
 
-<main>
-    <section class="content">
-        <h2>スポンサー募集</h2>
-        <p>ご支援いただける企業・個人の皆様を募集しています。</p>
-    </section>
-</main>
+    <main class="page-body container">
+      <h2>ご支援のお願い</h2>
+      <p>資材や技術支援、スポンサーを募集しています。お問い合わせは dev.snn.emc@gmail.com へお願い致します。</p>
 
-<footer>
-    <p>© 篠ノ井技術クラブ</p>
-</footer>
+      <section style="margin-top:18px;">
+        <h3>お知らせ</h3>
+        <div class="news-container"></div>
+      </section>
+    </main>
 
+    <footer class="site-footer container">
+      <div>© 2025 篠ノ井技術クラブ</div>
+    </footer>
+  </div>
+
+  <div id="loading-wrap" style="display:none;">
+    <div class="loader">
+      <div style="font-weight:700;color:#072">ロード中…</div>
+      <div style="height:10px;background:#eef;margin-top:12px;border-radius:8px;overflow:hidden;">
+        <div class="bar" style="width:0%"></div>
+      </div>
+      <div class="text">ページ読み込み中…</div>
+    </div>
+  </div>
+
+  <script src="/shino-emc/js/news.js" defer></script>
+  <script src="/shino-emc/js/main.js" defer></script>
 </body>
 </html>
