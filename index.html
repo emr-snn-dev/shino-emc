@@ -3,25 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>篠ノ井技術クラブ</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <!-- CSS -->
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="style.css">
 
     <!-- JS -->
-    <script src="./js/app.js" defer></script>
+    <script src="app.js" defer></script>
 </head>
-
 <body>
 
-<section>
+<!-- ▼ ローディング画面（全ページ共通） -->
+<div id="loading-screen">
+    <div class="loading-bar">
+        <div class="loading-fill"></div>
+    </div>
+</div>
+<!-- ▲ ローディング -->
+
+<header>
     <h1>篠ノ井技術クラブ</h1>
-    <p>エコマラソン ＆ エコマイレッジに挑戦！</p>
-</section>
+    <p>エコマラソン & エコマイレッジに挑戦！</p>
+</header>
 
 <section>
-    <h2>最新のお知らせ</h2>
-    <ul>
-        <li>ここにニュースを出す</li>
+    <h2>お知らせ</h2>
+    <ul id="news-list">
+        <li>読み込み中...</li>
     </ul>
 </section>
 
