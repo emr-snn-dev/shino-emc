@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>お知らせ管理</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>お知らせ管理</h1>
+
+<form id="newsForm">
+    <label>タイトル：</label><br>
+    <input type="text" id="title" required><br><br>
+
+    <label>本文：</label><br>
+    <textarea id="content" required></textarea><br><br>
+
+    <label>NEW! 表示日数：</label>
+    <input type="number" id="newDays" value="7" min="1"><br><br>
+
+    <button type="submit">登録</button>
+</form>
+
+<p id="result"></p>
+
+<script>
+document.getElementById("newsForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const data = {
+        title: document.getElementById("title").value,
+        content: document.getElementById("content").value,
+        newDays: parseInt(document.getElementById("newDays").value),
+        date: new Date().toISOString().split("T")[0]
+    };
+
+    localStorage.setItem("latestNews", JSON.stringify(data));
+
+    document.getElementById("result").innerText = "保存しました。";
+});
+</script>
+
+</body>
+</html>
