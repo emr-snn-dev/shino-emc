@@ -1,70 +1,108 @@
-/* ===============================
-   全ページ共通：背景グラデーション
-================================ */
+/* =========================================================
+   基本設定
+========================================================= */
 body {
     margin: 0;
     padding: 0;
-    font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
-    background: linear-gradient(135deg, #0a2a73, #2d56ff);
-    min-height: 100vh;
+    font-family: "ヒラギノ角ゴ ProN", "Noto Sans JP", sans-serif;
+    color: #fff;
+    background: linear-gradient(135deg, #001843, #0049a8, #4d7be6);
+    background-size: 200% 200%;
+    animation: bgMove 12s ease infinite;
+}
+
+/* 背景アニメーション */
+@keyframes bgMove {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+/* 文字の選択時の色 */
+::selection {
+    background: #356dff;
     color: #fff;
 }
 
-/* ===============================
-   コンテンツを中央寄せ
-================================ */
+/* =========================================================
+   コンテンツレイアウト
+========================================================= */
 .container {
-    max-width: 960px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 20px;
 }
 
-/* ===============================
-   セクション白カード
-================================ */
-.card {
-    background: rgba(255,255,255,0.95);
-    padding: 40px;
-    border-radius: 14px;
-    margin-bottom: 40px;
-    color: #000;
+/* =========================================================
+   ナビゲーション（中央・ボタン）
+========================================================= */
+.nav {
+    text-align: center;
+    margin: 20px 0 40px;
 }
 
-/* ===============================
-   ナビゲーション
-================================ */
-nav ul {
+.nav ul {
     list-style: none;
     padding: 0;
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
+    margin: 0;
 }
 
-nav ul li a {
-    color: #fff;
-    font-weight: 600;
+.nav ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+/* ボタンデザイン */
+.nav ul li a {
+    display: inline-block;
+    padding: 10px 22px;
+    background: linear-gradient(45deg, #002b7a, #3379ff);
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
     text-decoration: none;
+    transition: 0.25s;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
 }
 
-nav ul li a:hover {
-    opacity: .7;
+/* ホバー */
+.nav ul li a:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(45deg, #0040b0, #5e97ff);
 }
 
-/* ===============================
+/* =========================================================
    見出し
-================================ */
+========================================================= */
 h1, h2, h3 {
-    margin-top: 0;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
 }
 
-/* ===============================
+/* =========================================================
+   カードなどの白いブロック
+========================================================= */
+.card {
+    background: rgba(255, 255, 255, 0.85);
+    color: #000;
+    padding: 25px;
+    margin: 25px 0;
+    border-radius: 15px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.7s ease;
+}
+
+/* ふわっと出るアニメーション */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(10px);}
+    100% { opacity: 1; transform: translateY(0);}
+}
+
+/* =========================================================
    フッター
-================================ */
+========================================================= */
 footer {
     text-align: center;
-    margin-top: 40px;
-    padding: 30px;
-    color: #fff;
-    opacity: .9;
+    margin: 50px 0 20px;
+    color: rgba(255,255,255,0.85);
 }
+
