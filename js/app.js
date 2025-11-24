@@ -1,27 +1,43 @@
-// ----------------------------------
-// ローディング（回転 or バーをランダム）
-// ----------------------------------
-window.addEventListener("DOMContentLoaded", () => {
-    const container = document.querySelector(".loading-animation");
+// app.js
+// ローディング：ランダムで「回転」か「横バー」を表示。ページ読み込み完了でフェードアウト。
 
-    // 50%の確率でアニメを変える
-    const random = Math.random() > 0.5;
+(function () {
+  function createSpinner() {
+    const s = document.createElement('div');
+    s.className = 'loader-circle';
+    return s;
+  }
 
-    if (random) {
-        container.innerHTML = `<div class="loader-circle"></div>`;
-    } else {
-        container.innerHTML = `
-            <div class="loader-bar-wrap">
-                <div class="loader-bar"></div>
-            </div>`;
-    }
-});
+  function createBar() {
+    const wrap = document.createElement('div');
+    wrap.className = 'loader-bar-wrap';
+    const bar = document.createElement('div');
+    bar.className = 'loader-bar';
+    wrap.appendChild(bar);
+    return wrap;
+  }
 
-// ----------------------------------
-// ページ読み込み完了
-// ----------------------------------
-window.addEventListener("load", () => {
+  document.addEventListener('DOMContentLoaded', () => {
+    const animRoot = document.querySelector('.loading-animation');
+    if (!animRoot) return;
+
+    // ランダム選択（50/50）
+    const useSpinner = Math.random() > 0.5;
+    const widget = useSpinner ? createSpinner() : createBar();
+    animRoot.appendChild(widget);
+  });
+
+  // 完全読み込み後にフェードアウト
+  window.addEventListener('load', () => {
+    const loading = document.getElementById('loading-screen');
+    if (!loading) return;
+
+    // 余裕を持たせてクールにフェード
     setTimeout(() => {
-        document.getElementById("loading-screen").classList.add("fade-out");
-    }, 600);
-});
+      loading.classList.add('fade-out');
+      setTimeout(() => {
+        if (loading && loading.parentNode) loading.parentNode.removeChild(loading);
+      }, 480);
+    }, 500);
+  });
+})();
