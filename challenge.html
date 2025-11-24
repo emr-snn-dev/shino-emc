@@ -1,23 +1,37 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>私たちの挑戦 - 篠ノ井技術クラブ</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>私たちの挑戦 - 篠ノ井技術クラブ</title>
 
-    <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="css/style.css">
 
-    <script src="./js/app.js" defer></script>
-    <script src="./js/header.js" defer></script>
-    <script src="./js/footer.js" defer></script>
+  <script src="js/app.js" defer></script>
+  <script src="js/header.js" defer></script>
+  <script src="js/footer.js" defer></script>
+  <script src="js/news.js" defer></script>
 </head>
-
 <body>
+  <div id="loading-screen" aria-hidden="true">
+    <div class="loading-animation" role="img" aria-label="読み込み中"></div>
+  </div>
 
-<section>
-    <h1>私たちの挑戦</h1>
-    <p>精密な制御による燃費向上への挑戦！</p>
-</section>
+  <!-- header -->
+  <main>
+    <section class="card">
+      <h1>私たちの挑戦</h1>
+      <p>精密な制御による燃費目標達成を目指しています。エコマラソン（耐久）とエコマイレッジ（1Lチャレンジ）それぞれの仕様に合わせた設計・制御を進めています。</p>
 
+      <h3>技術ポイント</h3>
+      <ul>
+        <li>制御システム（ECU/BMS）開発</li>
+        <li>車体の空力最適化と軽量化（CFRPなど）</li>
+        <li>運転技術と最適制御で燃費向上</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- footer -->
 </body>
 </html>
