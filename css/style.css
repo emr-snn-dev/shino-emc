@@ -1,111 +1,69 @@
-/* =========================================================
-   全体
-========================================================= */
+/* 背景グラデーション（青 × ネイビー） */
 body {
     margin: 0;
-    font-family: "Yu Gothic", "Meiryo", sans-serif;
-    background: linear-gradient(120deg, #e9f4ff, #ffffff 60%, #d4e1f5);
-    color: #003366;
-}
-
-/* =========================================================
-   トップ（ヒーロー）
-========================================================= */
-.hero {
+    font-family: "Segoe UI", sans-serif;
+    color: #fff;
+    background: linear-gradient(135deg, #0f4cbd, #022052);
     text-align: center;
-    padding: 70px 20px 50px;
 }
 
-.hero h1 {
-    margin: 0;
-    font-size: 2.8rem;
-    font-weight: 900;
-    color: #003A82;
-    text-shadow: 2px 2px 5px #ffffff;
+/* ヘッダー */
+header {
+    padding: 40px 20px;
 }
 
-.hero p {
-    margin-top: 15px;
-    font-size: 1.2rem;
-    color: #07336a;
+header h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255,255,255,0.4);
 }
 
-/* =========================================================
-   メイン・ボタンメニュー
-========================================================= */
-.main-menu {
+/* メニュー（中央の丸ボタン） */
+.menu {
+    margin: 40px auto;
     display: flex;
+    gap: 20px;
     justify-content: center;
-    margin: 20px 0 40px;
+    flex-wrap: wrap;
 }
 
-.main-menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.main-menu li {
-    margin: 15px 0;
-}
-
-/* 中央に大きな立体ボタン */
-.main-menu a {
-    display: block;
-    text-align: center;
-    padding: 18px 35px;
-    width: 280px;
-    font-size: 1.2rem;
-    background: linear-gradient(180deg, #2a75ff, #1c4fb9);
-    border-radius: 12px;
+.menu a {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 8px;
+    background: linear-gradient(#e8eefb, #b8cae9);
+    color: #003377;
     text-decoration: none;
-    color: white;
     font-weight: bold;
-    letter-spacing: 1px;
-    transition: 0.2s ease;
-    box-shadow: 0 5px 15px rgba(0, 45, 120, 0.3);
+    border: 2px solid #ffffff44;
+    transition: 0.25s;
 }
 
-.main-menu a:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 18px rgba(0, 45, 120, 0.45);
+.menu a:hover {
+    background: #ffffff;
+    box-shadow: 0 0 10px #ffffff88;
 }
 
-/* =========================================================
-   お知らせ（News）
-========================================================= */
-.news {
+/* コンテンツカード */
+main {
     width: 90%;
     max-width: 800px;
-    margin: 30px auto 60px;
-    padding: 20px;
-    background: rgba(255,255,255,0.8);
-    border-left: 6px solid #2a75ff;
-    border-radius: 10px;
+    margin: 0 auto;
+    text-align: left;
+    background: rgba(255,255,255,0.1);
+    padding: 20px 30px;
+    border-radius: 12px;
+    backdrop-filter: blur(6px);
 }
 
-.news h2 {
+h2 {
     margin-top: 0;
-    font-size: 1.4rem;
-    color: #003366;
 }
 
-.news ul {
-    padding-left: 18px;
-    color: #003366;
-}
-
-.news li {
-    margin-bottom: 6px;
-}
-
-/* =========================================================
-   フッター
-========================================================= */
+/* フッター */
 footer {
-    text-align: center;
-    padding: 25px 0;
-    color: #003366;
-    background: #dce6ff;
-    border-top: 1px solid #aac2ff;
+    margin: 40px 0;
+    opacity: 0.85;
+    font-size: 14px;
 }
