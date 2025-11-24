@@ -1,32 +1,27 @@
-// ------------------------------------------------
-// ローディングバー進捗制御
-// ------------------------------------------------
-document.addEventListener("DOMContentLoaded", () => {
+// ----------------------------------
+// ローディング（回転 or バーをランダム）
+// ----------------------------------
+window.addEventListener("DOMContentLoaded", () => {
+    const container = document.querySelector(".loading-animation");
 
-    const loadingScreen = document.getElementById("loading-screen");
-    const fill = document.querySelector(".loading-fill");
-    
-    let progress = 0;
+    // 50%の確率でアニメを変える
+    const random = Math.random() > 0.5;
 
-    let timer = setInterval(() => {
+    if (random) {
+        container.innerHTML = `<div class="loader-circle"></div>`;
+    } else {
+        container.innerHTML = `
+            <div class="loader-bar-wrap">
+                <div class="loader-bar"></div>
+            </div>`;
+    }
+});
 
-        // ランダムに進み方が変化
-        progress += Math.random() * 8;
-
-        if (progress > 100) progress = 100;
-
-        // バー幅反映
-        fill.style.width = progress + "%";
-
-        // 100% 到達 → フェードアウト
-        if (progress >= 100) {
-            clearInterval(timer);
-
-            setTimeout(() => {
-                loadingScreen.style.opacity = 0;
-                setTimeout(() => loadingScreen.remove(), 500);
-            }, 250);
-        }
-
-    }, 120);
+// ----------------------------------
+// ページ読み込み完了
+// ----------------------------------
+window.addEventListener("load", () => {
+    setTimeout(() => {
+        document.getElementById("loading-screen").classList.add("fade-out");
+    }, 600);
 });
