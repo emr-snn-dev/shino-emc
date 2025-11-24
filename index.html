@@ -4,48 +4,48 @@
     <meta charset="UTF-8">
     <title>篠ノ井技術クラブ</title>
 
-    <!-- CSS 読み込み（フォルダが css/style.css の場合） -->
+    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- JavaScript（必要ならここに追加） -->
-    <script src="app.js" defer></script>
-    <script src="news.js" defer></script>
-    <script src="header.js" defer></script>
-    <script src="footer.js" defer></script>
+    <!-- JS（共通パーツ & ローディング & ニュース） -->
+    <script src="js/app.js" defer></script>
+    <script src="js/header.js" defer></script>
+    <script src="js/footer.js" defer></script>
+    <script src="js/news.js" defer></script>
 </head>
 
 <body>
 
-<header>
-    <nav>
-        <ul>
-            <li><a href="index.html">トップ</a></li>
-            <li><a href="challenge.html">活動紹介</a></li>
-            <li><a href="machine.html">車両紹介</a></li>
-            <li><a href="support.html">スポンサー</a></li>
-        </ul>
-    </nav>
-</header>
-
-<div class="container">
-
-    <section class="card">
-        <h1>篠ノ井技術クラブ</h1>
-        <p>エコマラソン ＆ エコマイレッジに挑戦中！</p>
-    </section>
-
-    <section class="card">
-        <h2>最新のお知らせ</h2>
-        <ul id="news-list">
-            <li>読み込み中...</li>
-        </ul>
-    </section>
-
+<!-- ローディング画面 -->
+<div id="loading">
+    <div class="loader"></div>
+    <p>読み込み中…</p>
 </div>
 
-<footer>
-    © 2025 篠ノ井技術クラブ
-</footer>
+<!-- 画面本体 -->
+<div id="content" style="display:none;">
+
+    <!-- ヘッダー（JSで読み込まれる） -->
+    <header id="site-header"></header>
+
+    <main>
+        <section class="hero">
+            <h1>篠ノ井技術クラブ</h1>
+            <p>エコマラソン ＆ エコマイレッジに挑戦！</p>
+        </section>
+
+        <section class="news-section">
+            <h2>最新のお知らせ</h2>
+            <ul id="news-list">
+                <li>読み込み中...</li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- フッター（JSで読み込まれる） -->
+    <footer id="site-footer"></footer>
+
+</div>
 
 </body>
 </html>
