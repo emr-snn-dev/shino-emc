@@ -1,54 +1,76 @@
-// ↓ ページ読込直後に実行
-document.addEventListener("DOMContentLoaded", () => {
+/* ===============================
+   LOADING
+================================*/
+window.addEventListener("load", () => {
+    const loader = document.getElementById("loading-screen");
+    setTimeout(() => {
+        loader.style.opacity = "0";
+        setTimeout(() => loader.remove(), 500);
+    }, 600);
+});
 
-    const loadingScreen = document.createElement("div");
-    loadingScreen.id = "loading-screen";
+/* =================================
+   LOCAL STORAGE NEWS
+================================= */
+const STORAGE_KEY = "SHINO_NEWS";
+const DAYS_NEW = 7;
 
-    // ランダムで
-    const mode = Math.random() < 0.5 ? "bar" : "spinner";
+/* Get data */
+function loadNews(){
+    const data = localStorage.getItem(STORAGE_KEY);
+    return data ? JSON.parse(data) : [];
+}
 
-    if (mode === "bar") {
-        loadingScreen.innerHTML = `
-            <div style="font-size:20px">読み込み中...</div>
-            <div class="loading-bar">
-                <div class="loading-bar-inner" id="bar"></div>
+/* Save data */
+function saveNews(list){
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+}
+
+/* Render */
+function renderNews(){
+    const box = document.getElementById("newsArea");
+    if(!box) return;
+
+    const list = loadNews();
+    const now = new Date();
+
+    box.innerHTML = "";
+
+    list.forEach(item=>{
+        const diff = (now - new Date(item.date)) / 86400000;
+        const isNew = diff <= DAYS_NEW;
+
+        box.innerHTML += `
+            <div class="news-card">
+                <h3>
+                    ${item.title}
+                    ${isNew ? `<span class="badge-new">NEW!</span>` : ""}
+                </h3>
+                <small>${item.date}</small>
             </div>
-            <div id="percent" style="margin-top:10px;font-size:14px;">0%</div>
         `;
-    } else {
-        loadingScreen.innerHTML = `
-            <div style="font-size:20px">読み込み中...</div>
-            <div class="spinner"></div>
-        `;
+    });
+}
+
+/* =================================
+   ADMIN SUBMIT
+================================= */
+function postNews(){
+    const title = document.getElementById("news-title").value;
+
+    if(!title){
+        alert("タイトルを入力してください");
+        return;
     }
 
-    document.body.appendChild(loadingScreen);
+    const list = loadNews();
+    list.unshift({
+        title,
+        date: new Date().toISOString().slice(0,10)
+    });
+    saveNews(list);
+    location.reload();
+}
 
+renderNews();
 
-    //===============================
-    // 進捗フェイクシミュレーション
-    //===============================
-    let progress = 0;
-    const interval = setInterval(() => {
-        progress += Math.random() * 8;
-        if (progress > 100) progress = 100;
-
-        const bar = document.getElementById("bar");
-        const percent = document.getElementById("percent");
-
-        if (bar) bar.style.width = progress + "%";
-        if (percent) percent.textContent = Math.floor(progress) + "%";
-
-        if (progress >= 100) {
-            clearInterval(interval);
-
-            setTimeout(() => {
-                loadingScreen.style.opacity = 0;
-                setTimeout(() => {
-                    loadingScreen.remove();
-                    document.querySelector(".page-content").style.display = "block";
-                }, 500);
-            }, 300);
-        }
-    }, 120);
-});
