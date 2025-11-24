@@ -1,189 +1,156 @@
-/* ==============================
-   背景アニメ（近未来）
-============================== */
-.bg-animation {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #002a74, #0052d4);
-  z-index: -1;
-  animation: moveBg 12s infinite alternate ease-in-out;
+/* ------------- RESET -------------- */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Noto Sans JP", sans-serif;
 }
 
-@keyframes moveBg {
-  0% {
-    filter: hue-rotate(0deg) brightness(1);
-  }
-  100% {
-    filter: hue-rotate(30deg) brightness(1.2);
-  }
+body{
+    background: linear-gradient(135deg, #002b55, #0050a0, #7ea8c9);
+    color:#fff;
+    min-height:100vh;
+    animation: bgMove 10s linear infinite;
 }
 
-/* ==============================
-   共通
-============================== */
-html, body {
-  margin: 0;
-  padding: 0;
-  color: #fff;
-  font-family: "Noto Sans JP", sans-serif;
-  background: none;
+/* 背景モーション */
+@keyframes bgMove {
+    0%{background-position:0 0;}
+    100%{background-position:800px 800px;}
 }
 
-/* ==============================
-   ヘッダー
-============================== */
-header {
-  text-align: center;
-  padding: 40px 0 10px;
+/* ------------- HEADER -------------- */
+header{
+    background: rgba(0,0,20,0.6);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding: 12px 0;
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:100;
 }
 
-.site-title {
-  font-size: 2.4rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-shadow: 0 0 20px rgba(255,255,255,0.4);
+nav ul{
+    display:flex;
+    justify-content:center;
+    gap:24px;
+    list-style:none;
 }
 
-/* ==============================
-   ナビゲーション
-============================== */
-nav {
-  text-align: center;
-  margin-top: 20px;
+nav a{
+    color:#fff;
+    text-decoration:none;
+    padding:8px 18px;
+    border-radius:6px;
+    transition:0.25s;
+    border:1px solid rgba(255,255,255,0.15);
 }
 
-nav a {
-  display: inline-block;
-  margin: 6px;
-  padding: 12px 22px;
-  border-radius: 6px;
-  background: rgba(255,255,255,0.1);
-  color: #fff;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: 0.25s;
-  backdrop-filter: blur(4px);
+nav a:hover{
+    background:#38a0ff;
 }
 
-nav a:hover {
-  background: rgba(255,255,255,0.3);
-  transform: translateY(-3px);
+/* ------------- HERO -------------- */
+.hero{
+    padding-top:100px;
+    text-align:center;
+    padding-bottom:80px;
 }
 
-/* ==============================
-   コンテンツ枠（全ページ共通）
-============================== */
-main,
-.container {
-  width: 90%;
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 20px;
-  background: rgba(255,255,255,0.08);
-  border-radius: 12px;
-  backdrop-filter: blur(6px);
-  border: 1px solid rgba(255,255,255,0.2);
+.hero h1{
+    font-size:2.6rem;
+    font-weight:700;
+    margin-bottom:16px;
 }
 
-/* 見出し */
-h2 {
-  font-size: 1.6rem;
-  margin-bottom: 15px;
-  border-left: 5px solid #8abaff;
-  padding-left: 10px;
+.hero p{
+    opacity:0.9;
+    font-size:1.2rem;
 }
 
-/* ==============================
-   リスト（ニュースなど）
-============================== */
-.news-list,
-ul {
-  list-style: none;
-  padding-left: 0;
+/* コンテンツ共通 */
+section{
+    padding:40px 8%;
 }
 
-.news-list li,
-ul li {
-  padding: 10px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.2);
+section h2{
+    margin-bottom:14px;
+    font-size:1.7rem;
+    font-weight:bold;
 }
 
-/* ==============================
-   テーブル
-============================== */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: rgba(255,255,255,0.05);
-  border-radius: 10px;
-  overflow: hidden;
+/* ------------- NEWS -------------- */
+#news-list{
+    list-style:none;
 }
 
-table th, table td {
-  padding: 10px;
-  border-bottom: 1px solid rgba(255,255,255,0.15);
+#news-list li{
+    background: rgba(255,255,255,0.08);
+    padding:14px 16px;
+    border-radius:6px;
+    margin-bottom:8px;
 }
 
-table th {
-  background: rgba(255,255,255,0.15);
+/* ------------- FOOTER -------------- */
+footer{
+    margin-top:50px;
+    padding:20px 0;
+    background:rgba(0,0,20,0.6);
+    border-top:1px solid rgba(255,255,255,0.2);
+    text-align:center;
+    backdrop-filter: blur(6px);
 }
 
-/* ==============================
-   フッター
-============================== */
-footer {
-  text-align: center;
-  padding: 30px;
-  font-size: 0.9rem;
-  opacity: 0.8;
+footer p{
+    font-size:0.9rem;
+    opacity:0.8;
 }
 
-/* ==============================
-   画像
-============================== */
-img {
-  max-width: 100%;
-  border-radius: 10px;
+/* ------------- LOADING -------------- */
+#loading{
+    position: fixed;
+    inset:0;
+    background:#00172c;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    z-index:9999;
 }
 
-/* ==============================
-   ボタン共通
-============================== */
-.button {
-  display: inline-block;
-  padding: 12px 26px;
-  background: rgba(255,255,255,0.2);
-  border-radius: 8px;
-  color: #fff;
-  text-decoration: none;
-  border: 1px solid rgba(255,255,255,0.3);
-  transition: 0.25s;
+/* バー */
+#loading-bar{
+    width:0%;
+    height:6px;
+    background:#38a0ff;
+    border-radius:3px;
+    transition:width 0.2s;
 }
 
-.button:hover {
-  background: rgba(255,255,255,0.4);
-  transform: translateY(-3px);
+.loading-box{
+    width:70%;
+    background:rgba(255,255,255,0.2);
+    height:6px;
+    border-radius:3px;
+    overflow:hidden;
+    margin-top:12px;
 }
 
-/* ==============================
-   スマホ対応
-============================== */
-@media (max-width: 600px) {
-
-  .site-title {
-    font-size: 1.8rem;
-  }
-
-  nav a {
-    padding: 10px 16px;
-    font-size: 0.9rem;
-  }
-
-  main,
-  .container {
-    padding: 16px;
-  }
+.loading-text{
+    font-size:1.1rem;
 }
+
+/* スマホ対応 */
+@media(max-width:600px){
+    nav ul{
+        gap:10px;
+        flex-wrap:wrap;
+    }
+
+    .hero h1{
+        font-size:1.9rem;
+    }
+}
+
