@@ -1,131 +1,173 @@
-/* -------------------------
-   全体
-------------------------- */
+/* ================================
+   全体基礎
+   (青・紺・銀 テーマ)
+================================= */
+* { box-sizing: border-box; }
+html,body { height: 100%; }
 body {
-    margin: 0;
-    font-family: "Yu Gothic", "Hiragino Sans", sans-serif;
-    background: #e9efff;
-    color: #081f3b;
-    overflow-x: hidden;
+  margin: 0;
+  font-family: "Noto Sans JP", "Yu Gothic", "Meiryo", sans-serif;
+  color: #07223a;
+  background: linear-gradient(120deg,#e7f2ff 0%, #cfe7ff 40%, #eaf4ff 100%);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  min-height: 100%;
 }
 
-/* 背景モーション（青の光が漂う） */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: radial-gradient(circle at 10% 20%, #99baff40, transparent),
-                radial-gradient(circle at 80% 70%, #4e75ff40, transparent);
-    animation: bg-move 10s infinite alternate ease-in-out;
-    z-index: -1;
+/* 背景の淡い動き（全ページ） */
+body::before{
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(0,170,255,0.12), transparent 10%),
+    radial-gradient(circle at 85% 75%, rgba(10,60,140,0.12), transparent 20%);
+  z-index: -1;
+  animation: floatbg 18s infinite alternate ease-in-out;
+}
+@keyframes floatbg {
+  0% { transform: translate(0,0) scale(1); }
+  100% { transform: translate(60px,-30px) scale(1.02); }
 }
 
-@keyframes bg-move {
-    0% { transform: translate(0px, 0px); }
-    100% { transform: translate(60px, -30px); }
-}
-
-/* -------------------------
-   カード
-------------------------- */
-.card {
-    background: #fff;
-    width: 90%;
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 35px;
-    border-radius: 18px;
-    box-shadow: 0 6px 18px #001b3620;
-}
-
-/* -------------------------
-   ヘッダー
-------------------------- */
+/* ================================
+   ヘッダー（自動挿入用の見た目）
+================================= */
 header {
-    background: #092a56;
-    padding: 15px 0;
-    box-shadow: 0 2px 6px #0003;
+  width: 100%;
+  background: linear-gradient(180deg,#0b2b56,#06305f);
+  color: #fff;
+  padding: 14px 12px;
+  box-shadow: 0 6px 18px rgba(3,27,66,0.15);
+  position: sticky;
+  top: 0;
+  z-index: 500;
 }
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    margin: 0;
-    padding: 0;
+header nav { max-width: 1100px; margin: 0 auto; }
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 22px;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
 }
-nav a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
+header nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 8px 10px;
+  border-radius: 6px;
+}
+header nav a:hover { background: rgba(255,255,255,0.06); }
+
+/* logo in header (if used) */
+.club-logo {
+  display: block;
+  height: 72px;
+  margin: 0 auto 8px;
+  object-fit: contain;
 }
 
-/* -------------------------
-   フッター
-------------------------- */
-footer {
-    background: #092a56;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 60px;
+/* ================================
+   カード / コンテンツ
+================================= */
+main { padding: 28px 16px 60px; }
+.card {
+  background: #fff;
+  max-width: 980px;
+  margin: 22px auto;
+  padding: 28px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(2,18,49,0.06);
 }
-footer a {
-    color: #fff;
-    text-decoration: none;
+.hero-inner { text-align: center; }
+.lead {
+  color: #274055;
+  margin-top: 10px;
+  font-size: 1.05rem;
 }
 
-/* -------------------------
-   ローディング
-------------------------- */
+/* 見出し */
+h1 { font-size: 2.2rem; margin: 6px 0 4px; color: #07223a; }
+h2 { font-size: 1.4rem; margin-bottom: 12px; color: #06243a; }
+
+/* ニュース */
+#news-list { list-style: none; padding-left: 0; margin-top: 6px; }
+#news-list li {
+  padding: 12px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, rgba(3,38,90,0.03), rgba(0,160,255,0.02));
+  margin-bottom: 10px;
+  color: #0b3550;
+}
+
+/* ================================
+   ローディング（青・紺・銀デザイン）
+================================= */
 #loading-screen {
-    position: fixed;
-    inset: 0;
-    background: linear-gradient(135deg, #092a56, #4e75ff);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9000;
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  background: linear-gradient(135deg, #cfeaff 0%, #274b84 60%, #0b2b56 100%);
 }
 
-/* 回転アニメ */
+/* ローディングアニメをJSでランダム出力する領域 */
+.loading-animation { display: flex; align-items: center; justify-content: center; }
+
+/* 回転スピナー */
 .loader-circle {
-    width: 55px;
-    height: 55px;
-    border: 7px solid #b9caff;
-    border-top-color: #fff;
-    border-radius: 50%;
-    animation: spin 0.9s linear infinite;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 7px solid rgba(185,202,255,0.9); /* 銀っぽい */
+  border-top-color: #ffffff;
+  animation: spin 0.9s linear infinite;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
 
-/* 横バーアニメ */
+/* 横バー */
 .loader-bar-wrap {
-    width: 60%;
-    max-width: 350px;
-    height: 10px;
-    border-radius: 5px;
-    background: #b9caff50;
-    overflow: hidden;
+  width: 66%;
+  max-width: 420px;
+  height: 14px;
+  background: linear-gradient(90deg,#dfe9f6,#bfcfe6);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(2,20,60,0.08);
 }
 .loader-bar {
-    width: 0%;
-    height: 100%;
-    background: #ffffff;
-    animation: bar 2.2s linear forwards;
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg,#0077ff,#00eaff);
+  animation: loader-bar-fill 2.4s linear forwards;
+}
+@keyframes loader-bar-fill { from { width: 0%; } to { width: 100%; } }
+
+/* フェードアウト用クラス（JSで付与） */
+.fade-out { opacity: 0; transition: opacity .45s; pointer-events: none; }
+
+/* ================================
+   フッター
+================================= */
+footer {
+  margin-top: 40px;
+  padding: 24px 12px;
+  background: linear-gradient(180deg,#0b2b56,#06305f);
+  color: #fff;
+  text-align: center;
 }
 
-@keyframes spin {
-    to { transform: rotate(360deg); }
+/* ================================
+   レスポンシブ（スマホ）
+================================= */
+@media (max-width: 780px) {
+  header nav ul { gap: 12px; flex-wrap: wrap; padding: 6px 8px; }
+  .club-logo { height: 56px; }
+  .card { margin: 12px; padding: 18px; }
+  .loader-bar-wrap { width: 84%; }
 }
-@keyframes bar {
-    from { width: 0%; }
-    to   { width: 100%; }
-}
-
-/* フェードアウト */
-.fade-out {
-    opacity: 0;
-    transition: 0.5s;
-    pointer-events: none;
-}
-
