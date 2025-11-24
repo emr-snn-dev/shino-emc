@@ -1,26 +1,19 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - ページが見つかりません</title>
-
-    <link rel="stylesheet" href="./css/style.css">
-
-    <script src="./js/app.js" defer></script>
-
-    <!-- 3秒後にホームへ -->
-    <meta http-equiv="refresh" content="3; URL=index.html">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>404 - 見つかりません</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script>setTimeout(()=>location.href='index.html',4000);</script>
 </head>
-
 <body>
-
-<section class="notfound">
-    <h1>404 - 見つかりません</h1>
-    <p>3秒後にトップへ戻ります...</p>
-</section>
-
+  <main>
+    <section class="card notfound">
+      <h1>404 — ページが見つかりません</h1>
+      <p>数秒後にトップへ戻ります。問題が継続する場合は管理者へご連絡ください。</p>
+      <p><a href="index.html">トップに戻る</a></p>
+    </section>
+  </main>
 </body>
 </html>
-
-
