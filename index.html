@@ -1,38 +1,146 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>SHINO EMC - HOME</title>
-<link rel="stylesheet" href="/shino-emc/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>篠ノ井技術クラブ</title>
+
+<style>
+/* --------------------
+  基本設定
+-------------------- */
+body {
+    margin: 0;
+    padding: 0;
+    background: #001a47;
+    color: white;
+    font-family: "Meiryo", sans-serif;
+}
+
+/* --------------------
+  ローディング画面
+-------------------- */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #001a47;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* ローディングの青い棒 */
+#loading-bar {
+    width: 0%;
+    height: 6px;
+    background: #00bfff;
+    transition: width 0.1s linear;
+}
+
+/* 数字表示 */
+#loading-percent {
+    margin-top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #00bfff;
+}
+
+/* --------------------
+  ページ本体（ローディング後表示）
+-------------------- */
+#main-content {
+    opacity: 0;
+    transition: opacity 0.8s;
+}
+
+/* ナビメニュー */
+nav ul {
+    list-style: none;
+    padding: 20px;
+}
+
+nav ul li a {
+    color: #00bfff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+nav ul li {
+    margin: 10px 0;
+}
+</style>
 </head>
 <body>
 
+<!-- ==========================
+  ローディング画面
+========================== -->
 <div id="loading-screen">
     <div id="loading-bar"></div>
+    <div id="loading-percent">0%</div>
 </div>
 
-<header>
-<nav>
-    <a href="/shino-emc/index.html">HOME</a>
-    <a href="/shino-emc/challenge.html">CHALLENGE</a>
-    <a href="/shino-emc/machine.html">MACHINE</a>
-    <a href="/shino-emc/support.html">SUPPORT</a>
-    <a href="/shino-emc/operator.html">OPERATOR</a>
-</nav>
-</header>
+<!-- ==========================
+  本体（読み込み後に表示）
+========================== -->
+<div id="main-content">
 
-<div class="page">
-    <h1>最新のお知らせ</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">トップ</a></li>
+            <li><a href="challenge.html">挑戦</a></li>
+            <li><a href="machine.html">マシン</a></li>
+            <li><a href="support.html">サポート</a></li>
+            <li><a href="operator.html">運営</a></li>
+        </ul>
+    </nav>
 
-    <div id="newsArea"></div>
+    <h1>ホームページ</h1>
+    <p>読み込み完了しました。</p>
 
-    <div class="ad-wrap">
-        <!-- admax -->
-        <script src="https://adm.shinobi.jp/s/2ecfa2b9f787a0094565767bec84c8fb"></script>
-        <!-- admax -->
-    </div>
 </div>
 
-<script src="/shino-emc/app.js"></script>
+<script>
+/* ===============================
+   ローディング処理
+=============================== */
+let percent = 0;
+const loadingBar = document.getElementById("loading-bar");
+const percentDisplay = document.getElementById("loading-percent");
+const screenEl = document.getElementById("loading-screen");
+const mainEl = document.getElementById("main-content");
+
+const loadingTimer = setInterval(() => {
+
+    percent++;
+    loadingBar.style.width = percent + "%";
+    percentDisplay.textContent = percent + "%";
+
+    if (percent >= 100) {
+        clearInterval(loadingTimer);
+
+        // 0.5秒待って画面切り替え
+        setTimeout(() => {
+            screenEl.style.display = "none";
+            mainEl.style.opacity = 1;
+
+            // ↓ 読み込み完了後一番下に自動スクロール
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: "smooth"
+            });
+
+        }, 500);
+    }
+}, 20);
+</script>
+
 </body>
 </html>
+
