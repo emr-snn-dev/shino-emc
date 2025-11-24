@@ -1,54 +1,37 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="utf-8">
-    <title>運営 - 篠ノ井技術クラブ</title>
+    <meta charset="UTF-8">
+    <title>篠ノ井技術クラブ | 運営</title>
     <link rel="stylesheet" href="/shino-emc/style.css">
 </head>
 <body>
-  <div class="container">
-    <header class="site-header">
-      <div class="brand">
-        <img src="/mnt/data/A_hand-drawn_and_digitally_rendered_logo_for_a_Jap.png" alt="logo" style="width:64px;height:64px;object-fit:contain;">
-        <div><h1>運営情報</h1></div>
-      </div>
-    </header>
 
-    <nav class="menu">
-      <a href="/shino-emc/index.html">トップ</a>
-      <a href="/shino-emc/challenge.html">私たちの挑戦</a>
-      <a href="/shino-emc/machine.html">マシン紹介</a>
-      <a href="/shino-emc/support.html">スポンサー・ご支援</a>
-      <a href="/shino-emc/operator.html">運営情報</a>
+<div id="loading" class="loading"></div>
+<div id="newsArea"></div>
+
+<header>
+    <h1>運営</h1>
+    <nav>
+        <ul>
+            <li><a href="/shino-emc/index.html">トップ</a></li>
+            <li><a href="/shino-emc/challenge.html">挑戦</a></li>
+            <li><a href="/shino-emc/machine.html">マシン</a></li>
+            <li><a href="/shino-emc/support.html">サポート</a></li>
+            <li><a href="/shino-emc/operator.html">運営</a></li>
+        </ul>
     </nav>
+</header>
 
-    <main class="page-body container">
-      <h2>運営</h2>
-      <p>篠ノ井技術クラブ 公式サイト運営チーム</p>
-      <p>連絡先: dev.snn.emc@gmail.com</p>
+<main>
+    <h2>クラブについて</h2>
+    <p>篠ノ井技術クラブの運営情報です。</p>
+</main>
 
-      <section style="margin-top:18px;">
-        <h3>お知らせ</h3>
-        <div class="news-container"></div>
-      </section>
-    </main>
+<footer>
+    © 篠ノ井技術クラブ
+</footer>
 
-    <footer class="site-footer container">
-      <div>© 2025 篠ノ井技術クラブ</div>
-    </footer>
-  </div>
-
-  <div id="loading-wrap" style="display:none;">
-    <div class="loader">
-      <div style="font-weight:700;color:#072">ロード中…</div>
-      <div style="height:10px;background:#eef;margin-top:12px;border-radius:8px;overflow:hidden;">
-        <div class="bar" style="width:0%"></div>
-      </div>
-      <div class="text">ページ読み込み中…</div>
-    </div>
-  </div>
-
-  <script src="/shino-emc/js/news.js" defer></script>
-  <script src="/shino-emc/js/main.js" defer></script>
+<script src="/shino-emc/script.js"></script>
 </body>
 </html>
