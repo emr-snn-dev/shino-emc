@@ -2,38 +2,91 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>篠ノ井技術クラブ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>篠ノ井技術クラブ - トップ</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <h1>篠ノ井技術クラブ</h1>
 
-<section id="newsArea"></section>
+<nav>
+    <ul>
+        <li><a href="index.html">トップ</a></li>
+        <li><a href="challenge.html">挑戦</a></li>
+        <li><a href="machine.html">マシン</a></li>
+        <li><a href="support.html">サポート</a></li>
+        <li><a href="operator.html">運営</a></li>
+    </ul>
+</nav>
+
+<h2>🔔 最新のお知らせ</h2>
+
+<!-- ▼ ローディング表示 -->
+<div id="loading" class="loading"></div>
+
+<!-- ▼ ニュースが入る -->
+<div id="newsArea"></div>
 
 <script>
-(function(){
-    const data = JSON.parse(localStorage.getItem("latestNews"));
-    if(!data) return;
+// =============================
+// ここにニュースデータ（管理画面から更新でもOK）
+// =============================
+const newsData = [
+    {
+        date: "2025/02/05",
+        text: "新スポンサー決定！",
+    },
+    {
+        date: "2025/02/01",
+        text: "マシン軽量化完了！",
+    },
+    {
+        date: "2025/01/22",
+        text: "メンバー増員！",
+    }
+];
 
+// =============================
+// NEW! の自動消失設定
+//   - 今日から7日以内 → NEW!
+// =============================
+function isNew(dateStr){
     const today = new Date();
-    const created = new Date(data.date);
-    const diff = (today - created) / (1000 * 60 * 60 * 24);
+    const newsDate = new Date(dateStr);
+    const diff = (today - newsDate) / 1000 / 60 / 60 / 24;
+    return diff <= 7;
+}
 
-    const showNew = diff <= data.newDays;
+// =============================
+// ローディング表示
+// =============================
+document.getElementById("loading").style.display = "block";
 
-    document.getElementById("newsArea").innerHTML = `
-        <div class="news-card">
-            <div>
-                <h3>${data.title}${showNew ? '<span class="new-badge">NEW!</span>' : ''}</h3>
-                <p>${data.content}</p>
-                <small>${data.date}</small>
-            </div>
-        </div>
-    `;
-})();
+// 0.8秒後に表示
+setTimeout(() => {
+
+    document.getElementById("loading").style.display = "none";
+
+    const newsArea = document.getElementById("newsArea");
+
+    newsData.forEach(n => {
+        const card = document.createElement("div");
+        card.className = "news-card";
+
+        card.innerHTML = `
+            <strong>${n.date}</strong>
+            ${isNew(n.date) ? '<span class="new-badge">NEW!</span>' : ''}
+            <p>${n.text}</p>
+        `;
+
+        newsArea.appendChild(card);
+    });
+
+}, 800);
 </script>
 
 </body>
 </html>
+
 
