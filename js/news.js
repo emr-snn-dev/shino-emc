@@ -1,23 +1,17 @@
-document.addEventListener("DOMContentLoaded", () => {
+const NEWS = [
+    "2月：新型車が完成！",
+    "1月：今年も大会に出場。",
+    "12月：スポンサーの皆さま、ありがとうございます！",
+];
 
+window.addEventListener("DOMContentLoaded", () => {
     const ul = document.getElementById("news-list");
-    if (!ul) return;
 
-    fetch("./js/news.json")
-        .then(res => res.json())
-        .then(data => {
+    ul.innerHTML = "";
 
-            ul.innerHTML = "";
-
-            data.forEach(item => {
-                const li = document.createElement("li");
-                li.textContent = `${item.date}　${item.title}`;
-                ul.appendChild(li);
-            });
-
-        })
-        .catch(() => {
-            ul.innerHTML = "<li>お知らせを読み込めませんでした。</li>";
-        });
-
+    NEWS.forEach(n => {
+        const li = document.createElement("li");
+        li.textContent = n;
+        ul.appendChild(li);
+    });
 });
