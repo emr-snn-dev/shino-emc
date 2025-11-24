@@ -1,113 +1,129 @@
-/* 全体 */
+/* =========================
+   基本設定
+========================= */
 body {
-    font-family: "Hiragino Sans", "Noto Sans JP", sans-serif;
     margin: 0;
-    padding: 20px;
-    background: #fafafa;
-    color: #222;
-    line-height: 1.8;
+    padding: 0;
+    font-family: "Yu Gothic", sans-serif;
+    background: linear-gradient(120deg, #e7f1ff, #fff);
+    color: #333;
 }
 
-/* タイトル */
-h1 {
-    font-size: 32px;
-    margin-bottom: 20px;
+/* =========================
+   見出し
+========================= */
+h1, h2, h3 {
+    margin: 20px;
 }
 
-/* ナビゲーション */
+/* =========================
+   メニュー
+========================= */
+nav {
+    text-align: center;
+    margin: 20px 0;
+}
+
 nav ul {
     list-style: none;
-    margin: 0;
     padding: 0;
 }
 
-nav ul li {
-    margin: 6px 0;
+nav li {
+    margin: 10px 0;
 }
 
-nav ul li a {
+nav a {
     text-decoration: none;
-    color: #0077cc;
+    font-size: 20px;
     font-weight: bold;
+    color: #005eff;
     transition: 0.2s;
 }
 
-nav ul li a:hover {
-    color: #0055aa;
-    padding-left: 4px;
+nav a:hover {
+    color: #0030cc;
 }
 
-/* セクション */
-section {
-    margin-top: 30px;
+/* =========================
+   ボタン
+========================= */
+button,
+input[type="submit"],
+input[type="button"] {
+    background: #008cff;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.2s;
 }
 
-/* 文章 */
-p {
-    margin: 12px 0;
+button:hover {
+    background: #005fcc;
 }
 
-/* NEW! バッジ */
+/* =========================
+   入力フォーム
+========================= */
+input, textarea {
+    width: 90%;
+    max-width: 500px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* =========================
+   お知らせカード
+========================= */
+.news-card {
+    width: 90%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 18px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    animation: fadein 0.7s forwards;
+}
+
+/* カードふわっと表示 */
+@keyframes fadein {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* NEW バッジ */
 .new-badge {
     display: inline-block;
-    background: #ff0066;
+    margin-left: 8px;
+    padding: 4px 8px;
+    background: linear-gradient(90deg, #ff4b4b, #ffbf00);
     color: white;
+    border-radius: 6px;
     font-size: 12px;
     font-weight: bold;
-    padding: 3px 6px;
-    border-radius: 6px;
-    margin-left: 8px;
-    animation: blink 1.2s infinite;
 }
 
-/* 点滅アニメ */
-@keyframes blink {
-    0% { opacity: 1; }
-    50% { opacity: 0.2; }
-    100% { opacity: 1; }
+/* =========================
+   ローディング
+========================= */
+.loading {
+    width: 40px;
+    height: 40px;
+    margin: 40px auto;
+    border: 5px solid #ddd;
+    border-top-color: #0077ff;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
 }
 
-/* カード（画像付きニュース用） */
-.news-card {
-    background: white;
-    border-radius: 12px;
-    padding: 16px;
-    margin: 16px 0;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    display: flex;
-    gap: 14px;
-    transition: transform 0.3s;
+@keyframes spin {
+    to { transform: rotate(360deg); }
 }
 
-.news-card:hover {
-    transform: translateY(-4px);
-}
-
-.news-card img {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-.news-card h3 {
-    margin: 0;
-    font-size: 18px;
-}
-
-.news-card p {
-    margin: 8px 0 0;
-}
-
-/* スマホ対応 */
-@media (max-width: 600px) {
-    .news-card {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .news-card img {
-        width: 100%;
-        height: auto;
-    }
-}
