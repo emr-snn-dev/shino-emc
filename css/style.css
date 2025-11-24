@@ -1,0 +1,180 @@
+/* ============================
+   全体の基本設定
+============================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Yu Gothic", "Meiryo", sans-serif;
+}
+
+body {
+    background: #0a1833;
+    color: #fff;
+}
+
+/* ============================
+   共通レイアウト
+============================ */
+section {
+    padding: 40px 5vw;
+}
+
+h1, h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* ============================
+   ヘッダー（自動挿入）
+============================ */
+header {
+    width: 100%;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(6px);
+    position: fixed;
+    top: 0;
+    z-index: 50;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    padding: 12px 20px;
+    justify-content: center;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #eee;
+    transition: 0.25s;
+    font-weight: bold;
+}
+
+header nav ul li a:hover {
+    color: #4fd5ff;
+}
+
+/* ============================
+   フッター（自動挿入）
+============================ */
+footer {
+    margin-top: 60px;
+    padding: 30px;
+    text-align: center;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(6px);
+}
+
+footer ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+footer a {
+    color: #ccc;
+    text-decoration: none;
+    transition: 0.25s;
+}
+
+footer a:hover {
+    color: #4fd5ff;
+}
+
+/* ============================
+   ニュース一覧
+============================ */
+#news-list {
+    list-style: none;
+    max-width: 700px;
+    margin: 20px auto 0 auto;
+    padding: 0;
+}
+
+#news-list li {
+    padding: 12px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+/* ============================
+   404ページ
+============================ */
+.notfound {
+    text-align: center;
+    padding-top: 100px;
+}
+
+/* ============================
+   ローディング背景
+============================ */
+#loading-overlay {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(90deg, #0a1833, #003361);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+}
+
+/* 棒アニメ */
+.loading-bar {
+    width: 80%;
+    height: 6px;
+    background: rgba(255,255,255,0.2);
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.loading-bar span {
+    display: block;
+    width: 0%;
+    height: 100%;
+    background: #4fd5ff;
+    animation: bar 2.5s linear forwards;
+}
+
+@keyframes bar {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+/* ぐるぐる */
+.loading-spin {
+    width: 48px;
+    height: 48px;
+    border: 4px solid #50caff;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ============================
+   スマホ対応
+============================ */
+@media (max-width: 600px) {
+
+    header nav ul {
+        flex-direction: column;
+        padding: 10px 0;
+        gap: 10px;
+    }
+
+    section {
+        padding: 28px 20px;
+    }
+
+    #news-list li {
+        font-size: 14px;
+    }
+}
