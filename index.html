@@ -1,50 +1,41 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>篠ノ井技術クラブ</title>
-
-    <link rel="stylesheet" href="css/style.css">
-
-    <script src="js/app.js" defer></script>
-    <script src="js/header.js" defer></script>
-    <script src="js/footer.js" defer></script>
-    <script src="js/news.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="js/lang.js" defer></script>
+    <script src="js/theme.js" defer></script>
 </head>
-
 <body>
 
-<!-- ローディング -->
-<div id="loading">
-    <div class="loading-text">Loading...</div>
-    <div class="loading-box">
-        <div id="loading-bar"></div>
-    </div>
-</div>
-
-<header></header>
-
-<section class="hero">
+<header>
     <h1>篠ノ井技術クラブ</h1>
-    <p>エコマラソン ＆ エコマイレッジに挑戦！</p>
-</section>
+    <nav>
+        <ul>
+            <li><a href="index.html">トップ</a></li>
+            <li><a href="challenge.html">挑戦</a></li>
+            <li><a href="machine.html">マシン</a></li>
+            <li><a href="support.html">サポート</a></li>
+            <li><a href="operator.html">運営</a></li>
+        </ul>
+    </nav>
+</header>
 
-<section>
-    <h2>最新のお知らせ</h2>
-    <ul id="news-list">
-        <li>読み込み中...</li>
-    </ul>
-</section>
+<main>
+    <section class="hero">
+        <h2>エコマラソン＆エコマイレッジ挑戦！</h2>
+        <p>信州から世界へ。燃費の限界へ。</p>
+    </section>
+</main>
 
-<!-- ⬇ 忍者AdMax（例） -->
-<div style="text-align:center; margin:20px 0;">
-    <!-- admax -->
-    <script src="https://adm.shinobi.jp/s/2ecfa2b9f787a0094565767bec84c8fb"></script>
-    <!-- admax -->
-</div>
+<footer>
+    <p>© 篠ノ井技術クラブ</p>
+</footer>
 
-<footer></footer>
+<!-- admax -->
+<script src="https://adm.shinobi.jp/s/2ecfa2b9f787a0094565767bec84c8fb"></script>
+<!-- /admax -->
 
 </body>
 </html>
