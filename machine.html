@@ -1,23 +1,32 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>マシン紹介 - 篠ノ井技術クラブ</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>マシン紹介 - 篠ノ井技術クラブ</title>
 
-    <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="css/style.css">
 
-    <script src="./js/app.js" defer></script>
-    <script src="./js/header.js" defer></script>
-    <script src="./js/footer.js" defer></script>
+  <script src="js/app.js" defer></script>
+  <script src="js/header.js" defer></script>
+  <script src="js/footer.js" defer></script>
+  <script src="js/news.js" defer></script>
 </head>
-
 <body>
+  <div id="loading-screen" aria-hidden="true">
+    <div class="loading-animation" role="img" aria-label="読み込み中"></div>
+  </div>
 
-<section>
-    <h1>マシン紹介</h1>
-    <p>クラブが作る燃費特化マシンを紹介します。</p>
-</section>
+  <main>
+    <section class="card">
+      <h1>マシン紹介</h1>
+      <p>2025年型の主要な車両設計、仕様、主要技術を掲載します。</p>
+
+      <h3>ガソリン部門（例）</h3>
+      <p>燃費: 498 km/L（参考記録）</p>
+      <p>主要技術: 超希薄燃焼制御、低転がり抵抗タイヤ、超軽量ボディ</p>
+    </section>
+  </main>
 
 </body>
 </html>
