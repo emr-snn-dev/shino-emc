@@ -1,45 +1,34 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>お知らせ管理</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>管理画面</title>
+<link rel="stylesheet" href="/shino-emc/style.css">
 </head>
 <body>
 
-<h1>お知らせ管理</h1>
+<div id="loading-screen">
+    <div id="loading-bar"></div>
+</div>
 
-<form id="newsForm">
-    <label>タイトル：</label><br>
-    <input type="text" id="title" required><br><br>
+<header>
+<nav>
+    <a href="/shino-emc/index.html">HOME</a>
+    <a href="/shino-emc/admin.html">ADMIN</a>
+</nav>
+</header>
 
-    <label>本文：</label><br>
-    <textarea id="content" required></textarea><br><br>
+<div class="page">
+    <h2>お知らせ追加</h2>
 
-    <label>NEW! 表示日数：</label>
-    <input type="number" id="newDays" value="7" min="1"><br><br>
+    <div class="admin-box">
+        <label>タイトル</label>
+        <input id="news-title" placeholder="例：大会に出場しました">
 
-    <button type="submit">登録</button>
-</form>
+        <button onclick="postNews()">追加</button>
+    </div>
+</div>
 
-<p id="result"></p>
-
-<script>
-document.getElementById("newsForm").addEventListener("submit", function(e){
-    e.preventDefault();
-
-    const data = {
-        title: document.getElementById("title").value,
-        content: document.getElementById("content").value,
-        newDays: parseInt(document.getElementById("newDays").value),
-        date: new Date().toISOString().split("T")[0]
-    };
-
-    localStorage.setItem("latestNews", JSON.stringify(data));
-
-    document.getElementById("result").innerText = "保存しました。";
-});
-</script>
-
+<script src="/shino-emc/app.js"></script>
 </body>
 </html>
