@@ -1,115 +1,70 @@
-/* ----------------------------------------------------
-   全体設定
----------------------------------------------------- */
-html, body {
+/* ===============================
+   全ページ共通：背景グラデーション
+================================ */
+body {
     margin: 0;
     padding: 0;
     font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
-    color: #FFFFFF;
-    background: linear-gradient(135deg, #001B44, #0B4AC0, #A8B3C3);
+    background: linear-gradient(135deg, #0a2a73, #2d56ff);
     min-height: 100vh;
+    color: #fff;
 }
 
-/* スムーズアニメーション */
-* {
-    transition: 0.3s ease;
-}
-
-/* ----------------------------------------------------
-   レイアウト
----------------------------------------------------- */
-main, header, nav, footer, section {
-    width: 100%;
-    box-sizing: border-box;
+/* ===============================
+   コンテンツを中央寄せ
+================================ */
+.container {
+    max-width: 960px;
+    margin: 0 auto;
     padding: 20px;
 }
 
-/* カード共通デザイン */
+/* ===============================
+   セクション白カード
+================================ */
 .card {
-    width: 100%;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(6px);
-    border-radius: 12px;
-    box-sizing: border-box;
-    padding: 24px;
-    margin-bottom: 24px;
+    background: rgba(255,255,255,0.95);
+    padding: 40px;
+    border-radius: 14px;
+    margin-bottom: 40px;
+    color: #000;
 }
 
-/* ----------------------------------------------------
-   タイトルなど
----------------------------------------------------- */
-h1, h2, h3, p, li {
-    text-align: left;
-    margin: 0 0 12px;
-}
-
-/* ----------------------------------------------------
+/* ===============================
    ナビゲーション
----------------------------------------------------- */
-.main-nav ul {
-    width: 100%;
+================================ */
+nav ul {
     list-style: none;
+    padding: 0;
     display: flex;
-    flex-wrap: wrap;
-    padding-left: 0;
     gap: 16px;
-    margin: 0 0 20px;
+    flex-wrap: wrap;
 }
 
-.main-nav a {
-    color: #DDE8FF;
+nav ul li a {
+    color: #fff;
+    font-weight: 600;
     text-decoration: none;
-    padding: 6px 12px;
-    border-radius: 6px;
 }
 
-.main-nav a:hover {
-    background-color: rgba(255, 255, 255, 0.25);
+nav ul li a:hover {
+    opacity: .7;
 }
 
-/* ----------------------------------------------------
-   ニュース欄
----------------------------------------------------- */
-#news-list {
-    padding-left: 16px;
+/* ===============================
+   見出し
+================================ */
+h1, h2, h3 {
+    margin-top: 0;
 }
 
-#news-list li {
-    margin-bottom: 8px;
-}
-
-/* ----------------------------------------------------
-   ローディングアニメ
----------------------------------------------------- */
-.loading {
-    opacity: 0;
-}
-
-.loading.show {
-    opacity: 1;
-}
-
-/* ----------------------------------------------------
+/* ===============================
    フッター
----------------------------------------------------- */
+================================ */
 footer {
-    font-size: 14px;
-    color: #E5ECFF;
-    border-top: 1px solid rgba(255, 255, 255, 0.4);
-    padding-top: 12px;
-}
-
-/* ----------------------------------------------------
-   スマホ対応
----------------------------------------------------- */
-@media screen and (max-width: 800px) {
-
-    .main-nav ul {
-        flex-direction: column;
-        gap: 8px;
-    }
-
-    .card {
-        padding: 18px;
-    }
+    text-align: center;
+    margin-top: 40px;
+    padding: 30px;
+    color: #fff;
+    opacity: .9;
 }
