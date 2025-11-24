@@ -1,135 +1,78 @@
-/* -------------------------
-   全体
-------------------------- */
-* {
+/* 背景・文字 */
+body {
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+    background: #003d99;      /* 青背景 */
+    color: white;
 }
 
-body {
-    background: linear-gradient(135deg, #408CFF, #0A268E);
-    font-family: "メイリオ", sans-serif;
-    color: #fff;
+/* 中央レイアウト */
+main, header, footer {
+    max-width: 900px;
+    margin: auto;
     padding: 20px;
 }
 
-/* -------------------------
-   ヘッダー
-------------------------- */
-.site-header h1 {
-    font-size: 38px;
-    font-weight: 900;
-    text-align: center;
-    margin-bottom: 20px;
+/* 見出し */
+h1, h2, h3 {
+    margin-top: 0;
 }
 
-/* -------------------------
-   メニュー
-------------------------- */
-.menu {
+/* ナビメニュー */
+nav .menu {
+    display: flex;
+    gap: 10px;
+    padding: 0;
+}
+
+nav .menu li {
+    list-style-type: none;
+}
+
+nav .menu a {
+    background: white;
+    color: #003d99;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+}
+
+nav .menu a:hover {
+    background: #ffdd22;
+    color: black;
+}
+
+/* ローディング画面 */
+#loading-screen {
+    position: fixed;
+    inset: 0;
+    background: #001a44;
     display: flex;
     justify-content: center;
-    gap: 20px;
-    margin-bottom: 25px;
-    flex-wrap: wrap;
+    align-items: center;
+    z-index: 9999;
 }
 
-.menu a {
-    background: rgba(255,255,255,0.15);
-    padding: 10px 16px;
-    border-radius: 8px;
-    color: #fff;
-    text-decoration: none;
-    transition: 0.3s;
+/* ローディングの棒 */
+#loading-bar {
+    width: 0%;
+    height: 6px;
+    background: #00ff99;
+    border-radius: 3px;
+    animation: loading-progress 1.6s ease-out forwards;
 }
 
-.menu a:hover {
-    background: rgba(255,255,255,0.4);
+/* 0 → 100% */
+@keyframes loading-progress {
+    from { width: 0%; }
+    to   { width: 100%; }
 }
 
-/* -------------------------
-   ローディング
-------------------------- */
-.loading {
-    width: 60px;
-    height: 60px;
-    border: 6px solid rgba(255,255,255,0.3);
-    border-top-color: #fff;
-    border-radius: 50%;
-    margin: 40px auto;
-    display: none;
-    animation: spin 0.7s linear infinite;
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
-
-/* -------------------------
-   お知らせカード
-------------------------- */
-.news-section h2 {
-    text-align: center;
-    margin: 30px 0 20px;
-}
-
-.news-container {
-    display: grid;
-    gap: 15px;
-    max-width: 900px;
-    margin: auto;
-}
-
-/* カード */
-.news-card {
-    background: rgba(255,255,255,0.15);
-    border-radius: 10px;
-    padding: 15px;
-    animation: fadeUp 0.4s ease forwards;
+/* 読み込み後フェードアウト */
+body.loaded #loading-screen {
     opacity: 0;
-}
-
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(10px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-
-.news-title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 8px;
-}
-
-.news-date {
-    font-size: 14px;
-    opacity: 0.8;
-    margin-bottom: 10px;
-}
-
-/* NEW! */
-.news-new {
-    display: inline-block;
-    background: #ff0060;
-    color: #fff;
-    padding: 3px 7px;
-    border-radius: 5px;
-    font-weight: bold;
-    margin-left: 6px;
-}
-
-/* 画像 */
-.news-img {
-    width: 100%;
-    border-radius: 8px;
-    margin-top: 10px;
-}
-
-/* -------------------------
-   フッター
-------------------------- */
-footer {
-    text-align: center;
-    opacity: 0.8;
-    margin-top: 50px;
+    pointer-events: none;
+    transition: 0.4s;
 }
