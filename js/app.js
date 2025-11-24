@@ -1,29 +1,32 @@
+// ------------------------------------------------
+// ローディングバー進捗制御
+// ------------------------------------------------
 document.addEventListener("DOMContentLoaded", () => {
 
-    // -----------------------
-    // ローディング画面生成
-    // -----------------------
-    const loader = document.createElement("div");
-    loader.id = "loading-screen";
-    loader.innerHTML = `
-        <div class="loading-box">
-            <div class="bar"></div>
-            <p>Loading...</p>
-        </div>
-    `;
-    document.body.appendChild(loader);
-
-    // 進捗バーフェイク（0→100）
+    const loadingScreen = document.getElementById("loading-screen");
+    const fill = document.querySelector(".loading-fill");
+    
     let progress = 0;
-    const interval = setInterval(() => {
+
+    let timer = setInterval(() => {
+
+        // ランダムに進み方が変化
         progress += Math.random() * 8;
-        loader.querySelector(".bar").style.width = progress + "%";
 
+        if (progress > 100) progress = 100;
+
+        // バー幅反映
+        fill.style.width = progress + "%";
+
+        // 100% 到達 → フェードアウト
         if (progress >= 100) {
-            clearInterval(interval);
-            loader.style.opacity = 0;
-            setTimeout(() => loader.remove(), 500);
-        }
-    }, 100);
+            clearInterval(timer);
 
+            setTimeout(() => {
+                loadingScreen.style.opacity = 0;
+                setTimeout(() => loadingScreen.remove(), 500);
+            }, 250);
+        }
+
+    }, 120);
 });
