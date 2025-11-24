@@ -1,96 +1,121 @@
-/* ===============================
-   基本設定（スマホ対応）
-   =============================== */
+/* ------------------------------
+  基本リセット
+------------------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
 body {
-    margin: 0;
-    padding: 0;
-    background: #ecf4ff;
-    font-family: sans-serif;
+  background: linear-gradient(135deg, #003087, #0050c8);
+  color: #fff;
+  font-family: "Noto Sans JP", sans-serif;
+  padding: 0 15px;
 }
 
-/* ===============================
-   上部ヘッダー
-   =============================== */
+/* ------------------------------
+  ヘッダー
+------------------------------ */
 header {
-    width: 100%;
-    background: #ffffff;
-    padding: 15px 0;
-    position: sticky;
-    top: 0;
-    z-index: 999;
+  text-align: center;
+  padding: 30px 0;
 }
 
-/* メニュー */
-.nav-menu {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
+header h1 {
+  font-size: 2rem;
+  font-weight: 700;
 }
 
-.nav-menu a {
-    display: inline-block;
-    background: #2e7cff;
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 25px;
-    border-radius: 10px;
-    font-size: 16px;
+/* ------------------------------
+  ナビメニュー
+------------------------------ */
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0 40px;
+  flex-wrap: wrap;
 }
 
-/* ===============================
-   コンテンツ
-   =============================== */
-.main-container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
+nav a {
+  display: inline-block;
+  margin: 5px 8px;
+  padding: 10px 20px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 8px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: 0.2s;
 }
 
-/* ===============================
-   フッター広告
-   =============================== */
-.ad-box {
-    width: 100%;
-    text-align: center;
-    margin: 20px 0;
+nav a:hover {
+  background: rgba(255,255,255,0.3);
 }
 
-/* ===============================
-   フッター
-   =============================== */
-footer {
-    background: #d3e4ff;
-    padding: 20px;
-    text-align: center;
+/* ------------------------------
+  メインコンテンツ
+------------------------------ */
+main {
+  max-width: 900px;
+  margin: auto;
 }
 
-/* ===============================
-   ニュース
-   =============================== */
+h2 {
+  font-size: 1.6rem;
+  margin: 25px 0 15px;
+}
+
+p,
+li {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+/* ------------------------------
+  お知らせリスト
+------------------------------ */
 .news-list {
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-}
-.news-item {
-    border-bottom: 1px solid #ddd;
-    padding: 8px 0;
-}
-.news-item:last-child {
-    border-bottom: none;
+  list-style: none;
+  margin-top: 10px;
 }
 
-/* ===============================
-   スマホ調整
-   =============================== */
+.news-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+/* ------------------------------
+  フッター
+------------------------------ */
+footer {
+  text-align: center;
+  padding: 30px 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* ------------------------------
+  スマホ対応
+------------------------------ */
 @media (max-width: 600px) {
-    .nav-menu {
-        flex-direction: column;
-        gap: 7px;
-    }
-    .nav-menu a {
-        text-align: center;
-        width: 90%;
-        margin: 0 auto;
-    }
+
+  header h1 {
+    font-size: 1.6rem;
+  }
+
+  nav a {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
 }
