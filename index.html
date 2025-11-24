@@ -3,49 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>篠ノ井技術クラブ</title>
-
-    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- JS（共通パーツ & ローディング & ニュース） -->
-    <script src="js/app.js" defer></script>
-    <script src="js/header.js" defer></script>
-    <script src="js/footer.js" defer></script>
+    <!-- 共通JS（必要な人は） -->
     <script src="js/news.js" defer></script>
 </head>
 
 <body>
 
-<!-- ローディング画面 -->
-<div id="loading">
-    <div class="loader"></div>
-    <p>読み込み中…</p>
-</div>
+    <!-- 背景アニメーション -->
+    <div class="bg"></div>
 
-<!-- 画面本体 -->
-<div id="content" style="display:none;">
+    <header>
+        <h1>篠ノ井技術クラブ</h1>
+        <p>エコマラソン & エコマイレッジに挑戦！</p>
+    </header>
 
-    <!-- ヘッダー（JSで読み込まれる） -->
-    <header id="site-header"></header>
+    <nav>
+        <ul>
+            <li><a href="index.html">トップ</a></li>
+            <li><a href="challenge.html">私たちの挑戦</a></li>
+            <li><a href="machine.html">マシン紹介</a></li>
+            <li><a href="support.html">スポンサー・ご支援</a></li>
+        </ul>
+    </nav>
 
-    <main>
-        <section class="hero">
-            <h1>篠ノ井技術クラブ</h1>
-            <p>エコマラソン ＆ エコマイレッジに挑戦！</p>
-        </section>
+    <section class="news-box">
+        <h2>最新のお知らせ</h2>
+        <ul id="news-list">
+            <li>読み込み中...</li>
+        </ul>
+    </section>
 
-        <section class="news-section">
-            <h2>最新のお知らせ</h2>
-            <ul id="news-list">
-                <li>読み込み中...</li>
-            </ul>
-        </section>
-    </main>
-
-    <!-- フッター（JSで読み込まれる） -->
-    <footer id="site-footer"></footer>
-
-</div>
+    <footer>
+        <p>© 2025 篠ノ井技術クラブ All Rights Reserved.</p>
+    </footer>
 
 </body>
 </html>
