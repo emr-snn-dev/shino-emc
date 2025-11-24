@@ -1,7 +1,5 @@
-// 今日の時間
 const now = Date.now();
 
-// お知らせ読み込み
 function loadNews() {
 
   let list = document.getElementById("news-list");
@@ -9,7 +7,6 @@ function loadNews() {
 
   let news = JSON.parse(localStorage.getItem("news") || "[]");
 
-  // 7日過ぎたら削除
   news = news.filter(n => now - n.date < 7*24*60*60*1000);
   localStorage.setItem("news", JSON.stringify(news));
 
@@ -35,7 +32,7 @@ function loadNews() {
   });
 }
 
-// ページロード時
 window.addEventListener("load", ()=>{
   loadNews();  
 });
+
