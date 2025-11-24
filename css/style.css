@@ -1,173 +1,79 @@
-/* ================================
-   全体基礎
-   (青・紺・銀 テーマ)
-================================= */
-* { box-sizing: border-box; }
-html,body { height: 100%; }
+/* ───────────────
+   背景（青 → 紺 → 銀のグラデ）
+──────────────── */
 body {
-  margin: 0;
-  font-family: "Noto Sans JP", "Yu Gothic", "Meiryo", sans-serif;
-  color: #07223a;
-  background: linear-gradient(120deg,#e7f2ff 0%, #cfe7ff 40%, #eaf4ff 100%);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  min-height: 100%;
+    margin: 0;
+    font-family: "Segoe UI", メイリオ, sans-serif;
+    background: linear-gradient(135deg, #001d3d, #003566, #4b6cb7);
+    color: #fff;
 }
 
-/* 背景の淡い動き（全ページ） */
-body::before{
-  content: "";
-  position: fixed;
-  inset: 0;
-  background:
-    radial-gradient(circle at 15% 20%, rgba(0,170,255,0.12), transparent 10%),
-    radial-gradient(circle at 85% 75%, rgba(10,60,140,0.12), transparent 20%);
-  z-index: -1;
-  animation: floatbg 18s infinite alternate ease-in-out;
-}
-@keyframes floatbg {
-  0% { transform: translate(0,0) scale(1); }
-  100% { transform: translate(60px,-30px) scale(1.02); }
-}
-
-/* ================================
-   ヘッダー（自動挿入用の見た目）
-================================= */
-header {
-  width: 100%;
-  background: linear-gradient(180deg,#0b2b56,#06305f);
-  color: #fff;
-  padding: 14px 12px;
-  box-shadow: 0 6px 18px rgba(3,27,66,0.15);
-  position: sticky;
-  top: 0;
-  z-index: 500;
-}
-header nav { max-width: 1100px; margin: 0 auto; }
-header nav ul {
-  list-style: none;
-  display: flex;
-  gap: 22px;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  margin: 0;
-}
-header nav a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 700;
-  padding: 8px 10px;
-  border-radius: 6px;
-}
-header nav a:hover { background: rgba(255,255,255,0.06); }
-
-/* logo in header (if used) */
-.club-logo {
-  display: block;
-  height: 72px;
-  margin: 0 auto 8px;
-  object-fit: contain;
-}
-
-/* ================================
-   カード / コンテンツ
-================================= */
-main { padding: 28px 16px 60px; }
-.card {
-  background: #fff;
-  max-width: 980px;
-  margin: 22px auto;
-  padding: 28px;
-  border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(2,18,49,0.06);
-}
-.hero-inner { text-align: center; }
-.lead {
-  color: #274055;
-  margin-top: 10px;
-  font-size: 1.05rem;
-}
-
-/* 見出し */
-h1 { font-size: 2.2rem; margin: 6px 0 4px; color: #07223a; }
-h2 { font-size: 1.4rem; margin-bottom: 12px; color: #06243a; }
-
-/* ニュース */
-#news-list { list-style: none; padding-left: 0; margin-top: 6px; }
-#news-list li {
-  padding: 12px;
-  border-radius: 8px;
-  background: linear-gradient(90deg, rgba(3,38,90,0.03), rgba(0,160,255,0.02));
-  margin-bottom: 10px;
-  color: #0b3550;
-}
-
-/* ================================
-   ローディング（青・紺・銀デザイン）
-================================= */
-#loading-screen {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 99999;
-  background: linear-gradient(135deg, #cfeaff 0%, #274b84 60%, #0b2b56 100%);
-}
-
-/* ローディングアニメをJSでランダム出力する領域 */
-.loading-animation { display: flex; align-items: center; justify-content: center; }
-
-/* 回転スピナー */
-.loader-circle {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  border: 7px solid rgba(185,202,255,0.9); /* 銀っぽい */
-  border-top-color: #ffffff;
-  animation: spin 0.9s linear infinite;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-}
-
-/* 横バー */
-.loader-bar-wrap {
-  width: 66%;
-  max-width: 420px;
-  height: 14px;
-  background: linear-gradient(90deg,#dfe9f6,#bfcfe6);
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 6px 24px rgba(2,20,60,0.08);
-}
-.loader-bar {
-  width: 0%;
-  height: 100%;
-  background: linear-gradient(90deg,#0077ff,#00eaff);
-  animation: loader-bar-fill 2.4s linear forwards;
-}
-@keyframes loader-bar-fill { from { width: 0%; } to { width: 100%; } }
-
-/* フェードアウト用クラス（JSで付与） */
-.fade-out { opacity: 0; transition: opacity .45s; pointer-events: none; }
-
-/* ================================
-   フッター
-================================= */
+/* 全体レイアウト */
+header,
+nav,
+main,
 footer {
-  margin-top: 40px;
-  padding: 24px 12px;
-  background: linear-gradient(180deg,#0b2b56,#06305f);
-  color: #fff;
-  text-align: center;
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
 }
 
-/* ================================
-   レスポンシブ（スマホ）
-================================= */
-@media (max-width: 780px) {
-  header nav ul { gap: 12px; flex-wrap: wrap; padding: 6px 8px; }
-  .club-logo { height: 56px; }
-  .card { margin: 12px; padding: 18px; }
-  .loader-bar-wrap { width: 84%; }
+/* ───────────────
+   カード（白×銀）
+──────────────── */
+.card {
+    background: rgba(255, 255, 255, 0.92);
+    color: #111;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(8px);
+}
+
+/* ───────────────
+   ナビゲーション
+──────────────── */
+.main-nav ul {
+    padding: 0;
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.main-nav a {
+    color: #d8e8ff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.main-nav a:hover {
+    color: #ffffff;
+}
+
+/* ───────────────
+   アニメーション
+──────────────── */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(24px);
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.delay-1 { animation-delay: 0.15s; }
+.delay-2 { animation-delay: 0.3s; }
+.delay-3 { animation-delay: 0.45s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* フッター */
+.site-footer {
+    text-align: center;
+    color: #ccd6ff;
+    margin-bottom: 40px;
 }
