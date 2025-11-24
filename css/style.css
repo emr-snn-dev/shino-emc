@@ -1,101 +1,111 @@
-/* -----------------------------------
-   ページ基本設定
------------------------------------ */
+/* =========================================================
+   全体
+========================================================= */
 body {
     margin: 0;
-    font-family: "Segoe UI", "Noto Sans JP", sans-serif;
-    color: white;
+    font-family: "Yu Gothic", "Meiryo", sans-serif;
+    background: linear-gradient(120deg, #e9f4ff, #ffffff 60%, #d4e1f5);
+    color: #003366;
 }
 
-/* -----------------------------------
-   青 → 紺 → 銀 グラデ背景
------------------------------------ */
-.bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: linear-gradient(
-        135deg,
-        #001d3d,
-        #0047ab,
-        #b0b7c3
-    );
-    background-size: 300% 300%;
-    animation: bgmove 10s infinite alternate;
-    z-index: -1;
-}
-
-@keyframes bgmove {
-    0% { background-position: 0% 0%; }
-    100% { background-position: 100% 100%; }
-}
-
-/* -----------------------------------
-   見出し（中央寄せ）
------------------------------------ */
-header {
+/* =========================================================
+   トップ（ヒーロー）
+========================================================= */
+.hero {
     text-align: center;
-    margin-top: 40px;
+    padding: 70px 20px 50px;
 }
 
-/* -----------------------------------
-   メニュー（中央・ボタン化）
------------------------------------ */
-nav ul {
+.hero h1 {
+    margin: 0;
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: #003A82;
+    text-shadow: 2px 2px 5px #ffffff;
+}
+
+.hero p {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    color: #07336a;
+}
+
+/* =========================================================
+   メイン・ボタンメニュー
+========================================================= */
+.main-menu {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 40px;
+}
+
+.main-menu ul {
     list-style: none;
     padding: 0;
-    margin: 40px auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    align-items: center;
+    margin: 0;
 }
 
-nav ul li a {
+.main-menu li {
+    margin: 15px 0;
+}
+
+/* 中央に大きな立体ボタン */
+.main-menu a {
     display: block;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 12px 32px;
-    border-radius: 10px;
-    color: white;
+    text-align: center;
+    padding: 18px 35px;
+    width: 280px;
     font-size: 1.2rem;
+    background: linear-gradient(180deg, #2a75ff, #1c4fb9);
+    border-radius: 12px;
     text-decoration: none;
+    color: white;
     font-weight: bold;
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(4px);
-    transition: 0.25s;
+    letter-spacing: 1px;
+    transition: 0.2s ease;
+    box-shadow: 0 5px 15px rgba(0, 45, 120, 0.3);
 }
 
-nav ul li a:hover {
-    background: rgba(255, 255, 255, 0.35);
-    border-color: white;
-    transform: translateY(-3px);
+.main-menu a:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(0, 45, 120, 0.45);
 }
 
-/* -----------------------------------
-   お知らせ部分
------------------------------------ */
-.news-box {
-    width: 80%;
-    max-width: 900px;
-    margin: 40px auto;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 16px;
-    backdrop-filter: blur(4px);
-    padding: 20px 30px;
+/* =========================================================
+   お知らせ（News）
+========================================================= */
+.news {
+    width: 90%;
+    max-width: 800px;
+    margin: 30px auto 60px;
+    padding: 20px;
+    background: rgba(255,255,255,0.8);
+    border-left: 6px solid #2a75ff;
+    border-radius: 10px;
 }
 
-.news-box h2 {
+.news h2 {
     margin-top: 0;
+    font-size: 1.4rem;
+    color: #003366;
 }
 
-/* -----------------------------------
+.news ul {
+    padding-left: 18px;
+    color: #003366;
+}
+
+.news li {
+    margin-bottom: 6px;
+}
+
+/* =========================================================
    フッター
------------------------------------ */
+========================================================= */
 footer {
     text-align: center;
-    margin: 60px 0 20px;
-    font-size: 0.9rem;
+    padding: 25px 0;
+    color: #003366;
+    background: #dce6ff;
+    border-top: 1px solid #aac2ff;
 }
-
