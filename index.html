@@ -1,47 +1,50 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>篠ノ井技術クラブ</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <script src="js/app.js" defer></script>
+    <script src="js/header.js" defer></script>
+    <script src="js/footer.js" defer></script>
+    <script src="js/news.js" defer></script>
 </head>
+
 <body>
 
-    <!-- ★ アニメ背景（光の流れエフェクト） -->
-    <div class="bg-animation"></div>
+<!-- ローディング -->
+<div id="loading">
+    <div class="loading-text">Loading...</div>
+    <div class="loading-box">
+        <div id="loading-bar"></div>
+    </div>
+</div>
 
-    <header>
-        <h1 class="site-title">篠ノ井技術クラブ</h1>
-    </header>
+<header></header>
 
-    <!-- メニュー -->
-    <nav>
-        <a href="index.html">トップ</a>
-        <a href="challenge.html">私たちの挑戦</a>
-        <a href="machine.html">マシン紹介</a>
-        <a href="support.html">スポンサー・ご支援</a>
-    </nav>
+<section class="hero">
+    <h1>篠ノ井技術クラブ</h1>
+    <p>エコマラソン ＆ エコマイレッジに挑戦！</p>
+</section>
 
-    <main>
-        <h2>最新のお知らせ</h2>
+<section>
+    <h2>最新のお知らせ</h2>
+    <ul id="news-list">
+        <li>読み込み中...</li>
+    </ul>
+</section>
 
-        <ul class="news-list">
-            <li>2025/02/01　スポンサー募集中！</li>
-            <li>2025/01/15　車体の改善を開始しました</li>
-            <li>2025/01/10　今シーズン始動！</li>
-        </ul>
-    </main>
+<!-- ⬇ 忍者AdMax（例） -->
+<div style="text-align:center; margin:20px 0;">
+    <!-- admax -->
+    <script src="https://adm.shinobi.jp/s/2ecfa2b9f787a0094565767bec84c8fb"></script>
+    <!-- admax -->
+</div>
 
-    <footer>
-        © 2025 篠ノ井技術クラブ All Rights Reserved.
-    </footer>
+<footer></footer>
 
 </body>
 </html>
