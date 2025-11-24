@@ -1,55 +1,96 @@
-
-/* ============================= */
-/* フッター（共通）             */
-/* ============================= */
-
-footer {
-    padding: 20px;
-    background: linear-gradient(135deg, #0a3d62, #1e5799);
-    color: white;
-    text-align: center;
-    margin-top: 40px;
+/* ===============================
+   基本設定（スマホ対応）
+   =============================== */
+body {
+    margin: 0;
+    padding: 0;
+    background: #ecf4ff;
+    font-family: sans-serif;
 }
 
-.footer-nav {
+/* ===============================
+   上部ヘッダー
+   =============================== */
+header {
+    width: 100%;
+    background: #ffffff;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+/* メニュー */
+.nav-menu {
     display: flex;
-    flex-wrap: wrap;
+    gap: 10px;
     justify-content: center;
-    gap: 15px;
-    margin-bottom: 15px;
 }
 
-.footer-nav a {
+.nav-menu a {
+    display: inline-block;
+    background: #2e7cff;
     color: #fff;
     text-decoration: none;
-    font-weight: bold;
-    padding: 6px 10px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 6px;
-    transition: 0.3s;
+    padding: 10px 25px;
+    border-radius: 10px;
+    font-size: 16px;
 }
 
-.footer-nav a:hover {
-    background: rgba(255,255,255,0.3);
+/* ===============================
+   コンテンツ
+   =============================== */
+.main-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-/* 広告枠 */
+/* ===============================
+   フッター広告
+   =============================== */
 .ad-box {
+    width: 100%;
+    text-align: center;
     margin: 20px 0;
+}
+
+/* ===============================
+   フッター
+   =============================== */
+footer {
+    background: #d3e4ff;
+    padding: 20px;
     text-align: center;
 }
 
-/* ============================= */
-/* スマホ対応                     */
-/* ============================= */
+/* ===============================
+   ニュース
+   =============================== */
+.news-list {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+}
+.news-item {
+    border-bottom: 1px solid #ddd;
+    padding: 8px 0;
+}
+.news-item:last-child {
+    border-bottom: none;
+}
 
-@media (max-width: 600px){
-    footer {
-        font-size: 14px;
-        padding: 15px;
+/* ===============================
+   スマホ調整
+   =============================== */
+@media (max-width: 600px) {
+    .nav-menu {
+        flex-direction: column;
+        gap: 7px;
     }
-    .footer-nav a {
-        padding: 6px 8px;
-        font-size: 13px;
+    .nav-menu a {
+        text-align: center;
+        width: 90%;
+        margin: 0 auto;
     }
 }
