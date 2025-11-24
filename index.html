@@ -1,33 +1,75 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>Loading</title>
-<link rel="stylesheet" href="style.css">
-<script src="script.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ホーム</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="loading-screen">
+<body>
 
-<div id="loader">
-  <div id="loader-bar"></div>
-  <div id="loader-percent">0%</div>
-</div>
+  <nav class="navbar">
+    <a href="index.html">トップ</a>
+    <a href="search.html">挑戦</a>
+    <a href="machine.html">マシン</a>
+    <a href="support.html">サポート</a>
+    <a href="admin.html">運営</a>
+  </nav>
 
-<script>
-let n = 0;
-const bar = document.getElementById("loader-bar");
-const num = document.getElementById("loader-percent");
+  <main class="container">
 
-let timer = setInterval(()=>{
-  n++;
-  bar.style.width = n + "%";
-  num.textContent = n + "%";
-  if(n >= 100){
-    clearInterval(timer);
-    window.location.href = "home.html";
-  }
-}, 20);
-</script>
+    <h1 class="page-title">ホームページ</h1>
+
+    <!-- お知らせ -->
+    <section class="box">
+      <h2 class="subtitle">お知らせ</h2>
+      <div id="newsArea" class="text">
+        読み込み中...
+      </div>
+    </section>
+
+    <!-- 広告 -->
+    <section class="box adbox">
+      <h2 class="subtitle">スポンサー広告</h2>
+      <div class="ad-frame">
+        468 × 60
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ページ最下部に到達後トップへ自動スクロール -->
+  <script>
+    // お知らせ（7日自動消し）
+    const news = JSON.parse(localStorage.getItem("news") || "[]");
+    const area = document.getElementById("newsArea");
+
+    function renderNews(){
+      const now = Date.now();
+      const valid = news.filter(n => now - n.time <= 7 * 24 * 60 * 60 * 1000);
+      localStorage.setItem("news", JSON.stringify(valid));
+
+      if(valid.length === 0){
+        area.textContent = "お知らせはありません";
+        return;
+      }
+
+      area.innerHTML = valid
+        .map(n => `<div>・${n.text}</div>`)
+        .join("");
+    }
+    renderNews();
+
+    // ページ読み込み後、最下部に来たら自動でトップに戻る
+    window.addEventListener("scroll", () => {
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+        setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }, 300);
+      }
+    });
+  </script>
 
 </body>
 </html>
+
