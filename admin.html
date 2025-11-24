@@ -1,34 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
 <meta charset="UTF-8">
 <title>管理画面</title>
-<link rel="stylesheet" href="/shino-emc/style.css">
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
 </head>
 <body>
 
-<div id="loading-screen">
-    <div id="loading-bar"></div>
-</div>
+<h1>管理画面</h1>
 
-<header>
-<nav>
-    <a href="/shino-emc/index.html">HOME</a>
-    <a href="/shino-emc/admin.html">ADMIN</a>
-</nav>
-</header>
+<textarea id="news-input" placeholder="お知らせ内容"></textarea>
+<button id="news-save">投稿</button>
 
-<div class="page">
-    <h2>お知らせ追加</h2>
+<div id="save-result"></div>
 
-    <div class="admin-box">
-        <label>タイトル</label>
-        <input id="news-title" placeholder="例：大会に出場しました">
+<script>
+document.getElementById("news-save").onclick = async ()=>{
 
-        <button onclick="postNews()">追加</button>
-    </div>
-</div>
+  const text = document.getElementById("news-input").value;
+  if(!text) return;
 
-<script src="/shino-emc/app.js"></script>
+  let news = JSON.parse(localStorage.getItem("news") || "[]");
+
+  news.push({
+    text,
+    date: Date.now()
+  });
+
+  localStorage.setItem("news", JSON.stringify(news));
+  document.getElementById("save-result").textContent = "保存しました！";
+};
+</script>
+
 </body>
 </html>
