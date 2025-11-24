@@ -1,130 +1,186 @@
-/* RESET */
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+/* ============================
+   全体設定
+============================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    font-family:"Helvetica", sans-serif;
-    background:linear-gradient(135deg,#e4f0ff,#cde2ff 40%,#a9c7ff 100%);
-    color:#002040;
-    padding-top:80px;
+body {
+    background: #001b44;
+    color: white;
+    font-family: "Meiryo", sans-serif;
+    padding: 20px;
 }
 
-/* HEADER */
-header{
-    position:fixed;
-    top:0;
-    width:100%;
-    background:#1246a0;
-    z-index:999;
-    padding:12px 0;
-}
-nav{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-}
-nav a{
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
-    background:rgba(255,255,255,0.15);
-    padding:10px 20px;
-    border-radius:8px;
-    transition:.25s;
-}
-nav a:hover{
-    background:rgba(255,255,255,0.35);
+/* ============================
+   ヘッダー
+============================ */
+h1 {
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+    font-weight: bold;
 }
 
-/* PAGE WRAP */
-.page{
-    max-width:860px;
-    margin:auto;
-    padding:20px;
+/* ============================
+   ナビゲーション
+============================ */
+nav {
+    margin-bottom: 25px;
 }
 
-/* LOADING */
-#loading-screen{
-    position:fixed;
-    inset:0;
-    background:#001a4aee;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    z-index:999999;
-}
-#loading-bar{
-    width:0%;
-    height:6px;
-    background:#00a9ff;
-    border-radius:4px;
-    animation:loading 1.6s linear forwards;
-}
-@keyframes loading{
-    from{width:0%;}
-    to{width:100%;}
+nav a {
+    display: block;
+    font-size: 1.3rem;
+    color: #00bfff;
+    margin: 8px 0;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s;
 }
 
-/* NEWS CARD */
-.news-card{
-    background:white;
-    padding:16px;
-    border-radius:10px;
-    border-left:6px solid #005aff;
-    margin-bottom:16px;
-    animation:cardIn .35s ease;
-}
-@keyframes cardIn{
-    from{opacity:0; transform:translateX(-12px);}
-    to{opacity:1; transform:translateX(0);}
+nav a:hover {
+    color: #33d1ff;
+    text-shadow: 0 0 10px #33d1ff;
 }
 
-/* BADGE */
-.badge-new{
-    display:inline-block;
-    background:#ff0055;
-    color:white;
-    padding:3px 7px;
-    border-radius:6px;
-    margin-left:8px;
-    font-size:12px;
+/* ============================
+   広告
+============================ */
+.ad-area {
+    text-align: center;
+    margin: 30px 0;
 }
 
-/* ADMIN */
-.admin-box{
-    margin-top:20px;
-    background:white;
-    padding:20px;
-    border-radius:12px;
-}
-.admin-box input,
-.admin-box textarea{
-    width:100%;
-    padding:10px;
-    margin-top:8px;
-    margin-bottom:14px;
-    border-radius:8px;
-    border:1px solid #ccc;
-}
-.admin-box button{
-    padding:12px 20px;
-    font-weight:bold;
-    background:#1246a0;
-    color:white;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
-}
-.admin-box button:hover{
-    background:#1e5aff;
+.ad-area img {
+    width: 100%;
+    max-width: 480px;
+    border-radius: 6px;
 }
 
-/* ADS BLOCK */
-.ad-wrap{
-    margin:20px 0;
-    text-align:center;
+/* ============================
+   ニュースカード
+============================ */
+#newsArea {
+    margin-top: 15px;
 }
 
+.news-card {
+    background: rgba(255,255,255,0.08);
+    padding: 15px;
+    margin-bottom: 18px;
+    border-radius: 10px;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.news-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.news-img {
+    width: 100%;
+    border-radius: 6px;
+    margin: 10px 0;
+}
+
+.news-date {
+    font-size: 0.9rem;
+    color: #fffa;
+    margin-top: 3px;
+}
+
+.news-content {
+    margin-top: 8px;
+    line-height: 1.6;
+}
+
+/* NEW! マーク */
+.newtag {
+    background: #ff0044;
+    padding: 3px 7px;
+    color: white;
+    margin-left: 8px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    animation: neon 1s infinite alternate;
+}
+
+@keyframes neon {
+    from { text-shadow: 0 0 6px #ff5577; }
+    to   { text-shadow: 0 0 13px #ff99aa; }
+}
+
+/* ============================
+   ローディング画面
+============================ */
+#loadingOverlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: #001233;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.5s;
+}
+
+#loadingText {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#loadingBarWrap {
+    width: 70%;
+    max-width: 450px;
+    height: 8px;
+    background: #003f7f;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#loadingBar {
+    width: 0%;
+    height: 100%;
+    background: #00bfff;
+    transition: width 0.25s linear;
+}
+
+/* ============================
+   管理画面
+============================ */
+input, textarea {
+    width: 90%;
+    max-width: 500px;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+}
+
+button {
+    padding: 10px 18px;
+    font-size: 1rem;
+    background: #00bfff;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #33d1ff;
+}
