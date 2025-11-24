@@ -1,80 +1,81 @@
-/* ============================
+/* ========================
    基本設定
-============================= */
+======================== */
 body {
-  margin: 0;
-  padding: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  background: #f7f9ff;
-  color: #111;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #0a1a40, #073b88, #c0c4cc);
+    color: #fff;
+    font-family: "Segoe UI", sans-serif;
 }
 
-/* ============================
+/* ========================
    ヘッダー
-============================= */
+======================== */
 header {
-  text-align: center;
-  padding: 30px 0 10px;
-  font-size: 32px;
-  font-weight: 700;
+    background: rgba(0,0,50,0.6);
+    backdrop-filter: blur(6px);
+    padding: 20px;
+    text-align: center;
 }
 
-/* ============================
-   ナビゲーション
-============================= */
-nav {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  background: #ffffff;
-  border-bottom: 2px solid #d0d0d0;
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
 }
 
-/* UL（メニューの外枠） */
-nav ul {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  list-style: none;
-  padding: 15px 0;
-  margin: 0;
-  width: 100%;
-  max-width: 1200px;
+header nav ul li a {
+    padding: 10px 18px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 6px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
-/* LI = ボタン */
-nav ul li {
-  flex: 1;
+header nav ul li a:hover {
+    background: rgba(255,255,255,0.35);
 }
 
-/* ボタンデザイン */
-nav ul li a {
-  display: block;
-  text-align: center;
-  padding: 15px 0;
-  background: #e8eefc;
-  border: 1px solid #d2d9f7;
-  border-radius: 6px;
-  font-size: 16px;
-  color: #003366;
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.25s;
+/* ========================
+   トップヒーロー
+======================== */
+.hero {
+    text-align: center;
+    padding: 120px 10px;
 }
 
-/* ホバー時 */
-nav ul li a:hover {
-  background: #d5e1ff;
-  border-color: #002d73;
-  color: #001a3c;
-  transform: translateY(-2px);
+/* ========================
+   ページ共通
+======================== */
+.content {
+    padding: 40px;
+    max-width: 900px;
+    margin: auto;
 }
 
-/* ============================
-   コンテンツ
-============================= */
-main {
-  padding: 40px 20px;
-  max-width: 1100px;
-  margin: 0 auto;
+/* ========================
+   フッター
+======================== */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    opacity: 0.7;
+    font-size: 0.9em;
+}
+
+/* ========================
+   スマホ対応
+======================== */
+@media (max-width: 600px) {
+    .content {
+        padding: 20px;
+    }
 }
