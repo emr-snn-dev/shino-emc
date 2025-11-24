@@ -1,122 +1,41 @@
-// ------------------------------------
-// お知らせ読み込み＆表示
-// ------------------------------------
-async function loadNews() {
-    const newsArea = document.getElementById("newsArea");
-    if (!newsArea) return; // そのページにない場合
+// 今日の時間
+const now = Date.now();
 
-    try {
-        const res = await fetch("news.json");
-        const news = await res.json();
+// お知らせ読み込み
+function loadNews() {
 
-        let html = "";
+  let list = document.getElementById("news-list");
+  if(!list) return;
 
-        news.forEach(item => {
-            const today = new Date();
-            const postDate = new Date(item.date);
-            const diff = (today - postDate) / 86400000; // 日数差
+  let news = JSON.parse(localStorage.getItem("news") || "[]");
 
-            // NEW! 7日以内
-            const isNew = diff <= 7;
+  // 7日過ぎたら削除
+  news = news.filter(n => now - n.date < 7*24*60*60*1000);
+  localStorage.setItem("news", JSON.stringify(news));
 
-            html += `
-            <div class="news-card">
-                ${item.image ? `<img src="${item.image}" class="news-img">` : ""}
-                <div class="news-title">
-                    ${item.title}
-                    ${isNew ? `<span class="newtag">NEW!</span>` : ""}
-                </div>
-                <div class="news-date">${item.date}</div>
-                <div class="news-content">${item.content}</div>
-            </div>
-            `;
-        });
+  if(news.length === 0){
+    list.innerHTML = "お知らせはありません";
+    return;
+  }
 
-        newsArea.innerHTML = html;
+  list.innerHTML = "";
 
-    } catch (e) {
-        newsArea.innerHTML = "<p>ニュースを読み込めませんでした。</p>";
-    }
+  news.forEach(n=>{
+    const div = document.createElement("div");
+    div.className = "item";
+
+    const isNew = (now - n.date < 2*24*60*60*1000);
+
+    div.innerHTML = `
+      ${isNew ? '<span class="new-tag">NEW!</span>' : ''}
+      ${n.text}
+    `;
+
+    list.appendChild(div);
+  });
 }
 
-// ------------------------------------
-// ローディングアニメーション
-// ------------------------------------
-let loadProgress = 0;
-function startLoading() {
-    const overlay = document.getElementById("loadingOverlay");
-    const text = document.getElementById("loadingText");
-    const bar = document.getElementById("loadingBar");
-
-    if (!overlay) return;
-
-    let timer = setInterval(() => {
-        loadProgress++;
-        text.innerText = loadProgress + "%";
-        bar.style.width = loadProgress + "%";
-
-        if (loadProgress >= 100) {
-            clearInterval(timer);
-
-            setTimeout(() => {
-                overlay.style.opacity = 0;
-                setTimeout(() => {
-                    overlay.style.display = "none";
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                    loadNews();
-                }, 500);
-            }, 300);
-        }
-    }, 20);
-}
-
-document.addEventListener("DOMContentLoaded", startLoading);
-
-
-
-// ------------------------------------
-// 管理画面：ログイン保存
-// ------------------------------------
-function adminLogin() {
-    const pass = document.getElementById("adminPass").value;
-    if (pass === "shinoclub") {
-        localStorage.setItem("adminLogin", "ok");
-        window.location.href = "admin.html";
-    } else {
-        alert("パスワードが違います");
-    }
-}
-
-
-// ------------------------------------
-// ニュース追加保存
-// ------------------------------------
-async function addNews() {
-    const title = document.getElementById("newTitle").value;
-    const date = document.getElementById("newDate").value;
-    const image = document.getElementById("newImage").value;
-    const content = document.getElementById("newContent").value;
-
-    const res = await fetch("news.json");
-    const news = await res.json();
-
-    news.unshift({
-        title,
-        date,
-        image,
-        content
-    });
-
-    // ローカルで保存（GitHub Pagesは書き込み不可 → 手動で書き戻し）
-    const blob = new Blob([JSON.stringify(news, null, 2)], {
-        type: "application/json"
-    });
-
-    const a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
-    a.download = "news.json";
-    a.click();
-
-    alert("news.json を上書きアップロードしてください");
-}
-
+// ページロード時
+window.addEventListener("load", ()=>{
+  loadNews();  
+});
