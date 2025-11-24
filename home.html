@@ -2,45 +2,45 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>篠ノ井技術クラブ | ホーム</title>
-<link rel="stylesheet" href="/shino-emc/style.css">
+<title>ホーム</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
 </head>
 <body>
 
-<!-- ローディング画面 -->
-<div id="loading-screen">
-    <div id="loading-bar"></div>
-</div>
+<!-- ナビ -->
+<nav>
+  <ul class="menu">
+    <li><a href="home.html">トップ</a></li>
+    <li><a href="challenge.html">挑戦</a></li>
+    <li><a href="machine.html">マシン</a></li>
+    <li><a href="support.html">サポート</a></li>
+    <li><a href="operator.html">運営</a></li>
+  </ul>
+</nav>
 
-<header>
-    <h1>篠ノ井技術クラブ</h1>
-    <nav>
-        <ul class="menu">
-            <li><a href="home.html">トップ</a></li>
-            <li><a href="challenge.html">挑戦</a></li>
-            <li><a href="machine.html">マシン</a></li>
-            <li><a href="support.html">サポート</a></li>
-            <li><a href="operator.html">運営</a></li>
-        </ul>
-    </nav>
-</header>
+<h1>ホームページ</h1>
 
-<main>
-    <h2>ようこそ！</h2>
-    <p>信州から世界へ、燃費の限界に挑戦しています。</p>
+<!-- お知らせ表示 -->
+<section id="news-area">
+  <h2>お知らせ</h2>
+  <div id="news-list">読み込み中...</div>
+</section>
 
-    <!-- 忍者AdMax -->
-    <!-- admax -->
-    <script src="https://adm.shinobi.jp/s/2ecfa2b9f787a0094565767bec84c8fb"></script>
-    <!-- admax -->
+<!-- 広告 -->
+<section id="ad-area">
+  <h2>スポンサー広告</h2>
+  <div class="ad-box">
+    <img src="https://placehold.jp/468x60.png">
+  </div>
+</section>
 
-</main>
-
-<footer>
-    © 篠ノ井技術クラブ
-</footer>
-
-<script src="/shino-emc/script.js"></script>
+<!-- 下に行ったらTOPに自動スクロール -->
+<script>
+window.onload = ()=>{
+  window.scrollTo({top:0,behavior:"smooth"});
+};
+</script>
 
 </body>
 </html>
