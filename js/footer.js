@@ -1,14 +1,16 @@
-document.write(`
-<div class="ad-box">
-<iframe 
-    src="https://adm.shinobi.jp/s/2ecfa2b9f787a0094565767bec84c8fb"
-    width="320"
-    height="100"
-    frameborder="0"
-    scrolling="no">
-</iframe>
-</div>
-<footer>
-© Shinobi EMC.
-</footer>
-`);
+fetch("data/news.json")
+.then(res => res.json())
+.then(list => {
+    const box = document.getElementById("news-list");
+    box.innerHTML = "";
+
+    list.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = `${item.date}　${item.title}`;
+        box.appendChild(li);
+    });
+})
+.catch(() => {
+    document.getElementById("news-list").innerHTML =
+        "<li>読み込み失敗</li>";
+});
