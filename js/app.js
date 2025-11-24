@@ -1,23 +1,39 @@
-document.addEventListener("DOMContentLoaded", () => {
+fetch("news.json")
+    .then(response => response.json())
+    .then(data => {
+        const list = document.getElementById("news-list");
+        list.innerHTML = "";
 
-    const loader = document.getElementById("loading");
-    const bar = document.getElementById("loading-bar");
+        const today = new Date();
 
-    let progress = 0;
-    const timer = setInterval(() => {
-        progress += Math.random() * 12;
+        data.forEach(news => {
+            const li = document.createElement("li");
 
-        if(progress >= 100){
-            progress = 100;
-            bar.style.width = "100%";
-            clearInterval(timer);
+            // NEW の表示判定
+            let showNew = false;
+            if (news.days) {
+                const newsDate = new Date(news.date);
+                const diff = (today - newsDate) / (1000 * 60 * 60 * 24);
+                showNew = diff <= news.days;
+            }
 
-            setTimeout(() => {
-                loader.style.opacity = 0;
-                setTimeout(() => loader.remove(), 400);
-            }, 300);
-        }else{
-            bar.style.width = `${progress}%`;
-        }
-    }, 120);
-});
+            li.classList.add("news-card");
+
+            li.innerHTML = `
+                <div class="news-item">
+                    ${news.img ? `<img src="${news.img}" class="news-img">` : ""}
+                    <div class="news-body">
+                        <span class="news-date">${news.date}</span>
+                        ${showNew ? `<span class="news-new">NEW!</span>` : ""}
+                        <p class="news-text">${news.text}</p>
+                    </div>
+                </div>
+            `;
+
+            list.appendChild(li);
+        });
+    })
+    .catch(() => {
+        document.getElementById("news-list").innerHTML =
+            `<li>読み込みに失敗しました</li>`;
+    });
