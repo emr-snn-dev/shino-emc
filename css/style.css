@@ -1,107 +1,101 @@
-/* =========================================================
-   基本設定
-========================================================= */
+/* -----------------------------------
+   ページ基本設定
+----------------------------------- */
 body {
     margin: 0;
-    padding: 0;
-    font-family: "ヒラギノ角ゴ ProN", "Noto Sans JP", sans-serif;
-    color: #fff;
-    background: linear-gradient(135deg, #001843, #0049a8, #4d7be6);
-    background-size: 200% 200%;
-    animation: bgMove 12s ease infinite;
+    font-family: "Segoe UI", "Noto Sans JP", sans-serif;
+    color: white;
 }
 
-/* 背景アニメーション */
-@keyframes bgMove {
+/* -----------------------------------
+   青 → 紺 → 銀 グラデ背景
+----------------------------------- */
+.bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(
+        135deg,
+        #001d3d,
+        #0047ab,
+        #b0b7c3
+    );
+    background-size: 300% 300%;
+    animation: bgmove 10s infinite alternate;
+    z-index: -1;
+}
+
+@keyframes bgmove {
     0% { background-position: 0% 0%; }
-    50% { background-position: 100% 100%; }
-    100% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
 }
 
-/* 文字の選択時の色 */
-::selection {
-    background: #356dff;
-    color: #fff;
-}
-
-/* =========================================================
-   コンテンツレイアウト
-========================================================= */
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* =========================================================
-   ナビゲーション（中央・ボタン）
-========================================================= */
-.nav {
+/* -----------------------------------
+   見出し（中央寄せ）
+----------------------------------- */
+header {
     text-align: center;
-    margin: 20px 0 40px;
+    margin-top: 40px;
 }
 
-.nav ul {
+/* -----------------------------------
+   メニュー（中央・ボタン化）
+----------------------------------- */
+nav ul {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
 }
 
-.nav ul li {
-    display: inline-block;
-    margin: 0 10px;
-}
-
-/* ボタンデザイン */
-.nav ul li a {
-    display: inline-block;
-    padding: 10px 22px;
-    background: linear-gradient(45deg, #002b7a, #3379ff);
+nav ul li a {
+    display: block;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 12px 32px;
     border-radius: 10px;
     color: white;
-    font-weight: bold;
+    font-size: 1.2rem;
     text-decoration: none;
+    font-weight: bold;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(4px);
     transition: 0.25s;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
 }
 
-/* ホバー */
-.nav ul li a:hover {
-    transform: translateY(-2px);
-    background: linear-gradient(45deg, #0040b0, #5e97ff);
+nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.35);
+    border-color: white;
+    transform: translateY(-3px);
 }
 
-/* =========================================================
-   見出し
-========================================================= */
-h1, h2, h3 {
-    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+/* -----------------------------------
+   お知らせ部分
+----------------------------------- */
+.news-box {
+    width: 80%;
+    max-width: 900px;
+    margin: 40px auto;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    backdrop-filter: blur(4px);
+    padding: 20px 30px;
 }
 
-/* =========================================================
-   カードなどの白いブロック
-========================================================= */
-.card {
-    background: rgba(255, 255, 255, 0.85);
-    color: #000;
-    padding: 25px;
-    margin: 25px 0;
-    border-radius: 15px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-    animation: fadeIn 0.7s ease;
+.news-box h2 {
+    margin-top: 0;
 }
 
-/* ふわっと出るアニメーション */
-@keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(10px);}
-    100% { opacity: 1; transform: translateY(0);}
-}
-
-/* =========================================================
+/* -----------------------------------
    フッター
-========================================================= */
+----------------------------------- */
 footer {
     text-align: center;
-    margin: 50px 0 20px;
-    color: rgba(255,255,255,0.85);
+    margin: 60px 0 20px;
+    font-size: 0.9rem;
 }
+
